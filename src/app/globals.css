@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f4ecdf;
+  --cream-2: #efe3d1;
+  --paper: #fbf7ef;
+  --ink: #2b2f36;
+  --ink-2: #5a5f68;
+  --muted: #8b8f97;
+  --terracotta: #d46a4c;
+  --terracotta-2: #b8553a;
+  --slate: #2b3a42;
+  --sage: #5c8d89;
+  --line: rgba(43, 47, 54, 0.12);
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-2: var(--terracotta-2);
+  --color-slate: var(--slate);
+  --color-sage: var(--sage);
+  --color-line: var(--line);
+  --font-sans:
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR",
+    "Apple SD Gothic Neo", "Malgun Gothic", Roboto, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(212, 106, 76, 0.25);
+}
+
+.paper-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 1px 2px rgba(43, 47, 54, 0.06),
+    0 12px 32px -12px rgba(43, 47, 54, 0.25);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.chip-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.prose-doc p {
+  margin: 0 0 1.05em;
+  line-height: 1.8;
+}
+.prose-doc h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 1.2em;
+  letter-spacing: -0.01em;
+}
+.prose-doc h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 1.6em 0 0.7em;
+}
+.prose-doc h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.3em 0 0.5em;
+}
+
+.answer p {
+  margin: 0 0 0.75em;
+  line-height: 1.7;
+}
+.answer ul,
+.answer ol {
+  margin: 0 0 0.75em 1.1em;
+  line-height: 1.65;
+}
+.answer li {
+  margin-bottom: 0.25em;
+  list-style: disc;
+}
+.answer ol li {
+  list-style: decimal;
+}
+.answer strong {
+  font-weight: 700;
+}
+.answer code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: rgba(43, 47, 54, 0.06);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+.answer .cite {
+  display: inline-block;
+  font-size: 0.72em;
+  font-weight: 600;
+  color: var(--terracotta-2);
+  vertical-align: super;
+  margin: 0 0.05em;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.fade-up {
+  animation: fade-up 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes pulse-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+.dots span {
+  animation: pulse-dot 1.2s infinite;
+}
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(43, 47, 54, 0.18);
+  border-radius: 8px;
+}
