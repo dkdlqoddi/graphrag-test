@@ -5,8 +5,8 @@ chapter: 10
 title: "References"
 pages: [10,15]
 category: "computing"
-summary: "이 장은 참고문헌과 함께, Transformer의 인코더 셀프어텐션이 장거리 의존성과 문장 구조를 어떻게 포착하는지 보여주는 시각화 예시를 포함한다. attention heads가 동사-보어 연결, 대명사 해소, 구문 구조 학습에 기여함을 설명한다."
-keywords: ["self-attention","Transformer","encoder self-attention","attention heads","long-distance dependencies","anaphora resolution","machine translation","sequence modeling","layer 5","syntactic structure"]
+summary: "이 장은 참고문헌 목록으로, Transformer와 관련된 선행 연구들을 나열하고 있다. 주제는 주로 attention, sequence to sequence learning, recurrent neural networks 계열의 방법들이다."
+keywords: ["attention","sequence transduction","neural machine translation","recurrent neural networks","self-attention","layer normalization","LSTM","Adam","dropout","machine reading","Penn Treebank","Deep residual learning"]
 ---
 
 # References

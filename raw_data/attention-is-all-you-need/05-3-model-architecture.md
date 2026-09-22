@@ -5,8 +5,8 @@ chapter: 5
 title: "3 Model Architecture"
 pages: [2,6]
 category: "computing"
-summary: "이 절은 Transformer의 전체 모델 구조를 설명하며, 인코더-디코더 스택, 스케일드 닷-프로덕트 어텐션, 멀티헤드 어텐션, 위치별 피드포워드 नेटवर्क, 임베딩, 위치 인코딩을 제시한다. 또한 순환이나 합성곱 없이도 순서를 반영하기 위해 마스킹과 사인·코사인 기반 positional encoding을 사용하는 방식을 설명한다."
-keywords: ["Transformer","멀티헤드 어텐션","positional encoding","인코더-디코더 구조","스케일드 닷-프로덕트 어텐션","self-attention","position-wise feed-forward network","residual connection","layer normalization","마스킹","embedding","softmax"]
+summary: "이 장은 Transformer의 핵심 구조인 인코더-디코더 아키텍처와 self-attention, multi-head attention의 동작 원리를 설명한다. 또한 position-wise feed-forward network, embeddings, positional encoding을 통해 순서 정보를 모델에 주입하는 방법을 다룬다."
+keywords: ["Transformer","encoder-decoder","Multi-Head Attention","self-attention","scaled dot-product attention","positional encoding","layer normalization","residual connection","position-wise feed-forward network","auto-regressive","softmax","ReLU"]
 ---
 
 # 3 Model Architecture

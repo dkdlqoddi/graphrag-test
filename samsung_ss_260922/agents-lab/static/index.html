@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>agent-lab</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">agent-lab</div>
+  <nav class="tabs">
+    <button class="tab on" data-tab="tools">도구</button>
+    <button class="tab" data-tab="mcp">MCP</button>
+    <button class="tab" data-tab="agents" id="tabAgents" hidden>에이전트</button>
+  </nav>
+  <div class="chips">
+    <span class="chip" id="chipTools">도구 –</span>
+    <span class="chip" id="chipNotes">메모 –</span>
+  </div>
+</header>
+
+<div id="errors" class="errors" hidden></div>
+
+<!-- ── 도구 탭 ─────────────────────────────────────────────────── -->
+<main class="panel on" data-panel="tools">
+  <div class="cols">
+
+    <section class="col">
+      <div class="card">
+        <div class="card-head">
+          <h2>도구 목록</h2>
+          <button class="ghost" id="resetTools">설명문 되돌리기</button>
+        </div>
+        <p class="hint">AI 는 이 목록을 보고 어떤 도구를 부를지 정합니다.
+          설명문을 고치면 바로 반영됩니다.</p>
+        <div id="toolList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>역할</h2>
+          <button class="ghost" id="resetPrompt">되돌리기</button>
+        </div>
+        <p class="hint">AI 에게 주는 지시문입니다. 도구는 그대로 둔 채 이 글만 바꿉니다.</p>
+        <textarea id="prompt" rows="9"></textarea>
+        <button class="apply" id="savePrompt">적용</button>
+      </div>
+
+      <div class="card">
+        <h2>데이터 파일</h2>
+        <p class="hint">도구가 읽고 쓰는 파일입니다. 경로를 바꾸면 도구가 어떻게 되는지 보세요.</p>
+        <input id="dataPath" type="text" spellcheck="false">
+        <button class="apply" id="saveDataPath">적용</button>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="card">
+        <h2>물어보기</h2>
+        <div class="ask">
+          <input id="message" type="text" placeholder="회의 메모 좀 찾아줘" autocomplete="off">
+          <button class="primary" id="send">보내기</button>
+        </div>
+        <div id="answer" class="answer" hidden></div>
+        <div id="calls" class="calls"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>메모</h2>
+          <button class="ghost" id="resetNotes">메모 초기화</button>
+        </div>
+        <p class="hint">도구가 실제로 무엇을 했는지는 여기에 나타납니다.</p>
+        <div id="notes" class="notes"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ── MCP 탭 ──────────────────────────────────────────────────── -->
+<main class="panel" data-panel="mcp">
+  <div class="cols">
+    <section class="col">
+      <div class="card">
+        <h2>서버 등록</h2>
+        <p class="hint">MCP 서버 주소를 넣고 <b>등록</b>을 누르면, 그 서버에 붙어 도구 목록을
+          받아 옵니다. 받아 온 도구는 아래 서버 목록과 [도구] 탭에 그대로 들어옵니다.</p>
+        <div class="ask">
+          <input id="mcpUrl" type="text" autocomplete="off" spellcheck="false"
+                 placeholder="https://learn.microsoft.com/api/mcp">
+          <button class="primary" id="mcpAdd">등록</button>
+        </div>
+        <div id="mcpNote" class="meta"></div>
+        <div id="mcpFound" class="merged" hidden></div>
+      </div>
+
+      <div class="card">
+        <h2>서버</h2>
+        <p class="hint">서버를 붙이면 그 서버가 가진 도구가 위 목록에 그대로 들어옵니다.
+          붙이는 방법은 어느 서버든 같습니다.</p>
+        <div id="mcpList"></div>
+      </div>
+    </section>
+    <section class="col">
+      <div class="card">
+        <h2>지금 쓸 수 있는 도구</h2>
+        <p class="hint">내장 도구와 서버가 내준 도구가 한 목록으로 합쳐집니다.</p>
+        <div id="mergedTools" class="merged"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ── 에이전트 탭 ──────────────────────────────────────────────── -->
+<main class="panel" data-panel="agents">
+
+  <div class="card graph-card">
+    <div class="card-head">
+      <h2>오가는 것 보기</h2>
+      <span class="status" id="graphStatus">대기 중</span>
+    </div>
+    <p class="hint">맡기는 동안 누가 일하고 있고 무엇이 건너가는지 실시간으로 그립니다.
+      아래 점선은 <b>연결이 없다는 뜻</b>입니다 — 연구원끼리는 서로를 부를 수단이 없습니다.</p>
+
+    <svg id="graph" viewBox="0 0 720 430" role="img" aria-label="세 에이전트 사이의 통신">
+      <!-- 변 (고정) -->
+      <path class="wire-base" d="M 326.4 120.2 L 165.6 283.8"></path>
+      <path class="wire-base" d="M 393.6 120.2 L 554.4 283.8"></path>
+      <path class="wire-none" d="M 180 318 L 540 318"></path>
+      <rect class="wire-none-bg" x="284" y="304" width="152" height="24" rx="12"></rect>
+      <text class="wire-none-tx" x="360" y="320">서로 부를 수단 없음</text>
+
+      <!-- 오가는 것 (JS 가 d 와 class 를 바꾼다) -->
+      <path id="flow" class="flow" d="" hidden></path>
+      <circle id="packet" class="packet" r="7" hidden></circle>
+
+      <!-- 마디 -->
+      <g class="node" data-role="orchestrator">
+        <circle class="halo" cx="360" cy="86" r="48"></circle>
+        <circle class="disc" cx="360" cy="86" r="48"></circle>
+        <text class="tag"  x="360" y="86">책임</text>
+        <text class="name" x="360" y="152">연구책임자</text>
+        <text class="sub"  x="360" y="171" data-sub="orchestrator">이 앱 · 8770</text>
+      </g>
+
+      <g class="node" data-role="research">
+        <circle class="halo" cx="132" cy="318" r="48"></circle>
+        <circle class="disc" cx="132" cy="318" r="48"></circle>
+        <text class="tag"  x="132" y="318">조사</text>
+        <text class="name" x="132" y="386">자료조사 연구원</text>
+        <text class="sub"  x="132" y="405" data-sub="research">–</text>
+      </g>
+
+      <g class="node" data-role="experiment">
+        <circle class="halo" cx="588" cy="318" r="48"></circle>
+        <circle class="disc" cx="588" cy="318" r="48"></circle>
+        <text class="tag"  x="588" y="318">실험</text>
+        <text class="name" x="588" y="386">실험수행 연구원</text>
+        <text class="sub"  x="588" y="405" data-sub="experiment">–</text>
+      </g>
+    </svg>
+
+    <div id="wire" class="wirebox" hidden>
+      <div class="wirebox-head">
+        <span class="dir" id="wireDir"></span>
+        <span class="kind" id="wireKind"></span>
+      </div>
+      <pre id="wireText"></pre>
+    </div>
+  </div>
+
+  <div class="cols">
+    <section class="col">
+      <div class="card">
+        <div class="card-head">
+          <h2>프로세스</h2>
+          <button class="ghost" id="agentsRefresh">새로 고침</button>
+        </div>
+        <p class="hint">연구원은 이 앱 안에 있지 않습니다. 각자 따로 떠 있습니다.
+          역할마다 볼 수 있는 도구가 다릅니다.</p>
+        <div id="agentList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>연구 자료 파일</h2>
+          <label class="pick" for="fileInput">파일 올리기</label>
+          <input type="file" id="fileInput" accept=".csv,.txt,.json" multiple hidden>
+        </div>
+        <p class="hint">실험수행 연구원의 <code>read_data_file</code> 이 읽는 파일입니다.
+          <code>data/research/</code> 에 저장됩니다. csv · txt · json, 2MB 까지.
+          조사 담당은 이 파일을 볼 수 없습니다.</p>
+        <div id="fileList" class="files"></div>
+        <div id="fileNote" class="meta"></div>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="card">
+        <h2>연구 시작</h2>
+        <p class="hint">연구책임자가 받아서 연구원들에게 나눠 맡깁니다.
+          데이터 <code>line_transition.csv</code> 는 <b>가상의 사업 가정</b>입니다.
+          실제 수치가 아닙니다.</p>
+        <textarea id="question" rows="7" placeholder="연구 질문을 입력하세요"></textarea>
+        <div class="runrow">
+          <button class="primary" id="startResearch">맡기기</button>
+          <button class="stop" id="stopResearch" disabled>중지</button>
+        </div>
+        <div id="researchNote" class="meta"></div>
+      </div>
+
+      <div class="card" id="followCard" hidden>
+        <div class="card-head">
+          <h2>이어서 물어보기</h2>
+          <button class="ghost" id="resetSession">새 연구로 시작</button>
+        </div>
+        <p class="hint">앞선 연구를 연구책임자가 기억하고 있습니다.
+          값 하나만 바꿔 다시 물어보세요.</p>
+        <div class="ask">
+          <input id="followQuestion" type="text" autocomplete="off"
+                 placeholder="해지율이 6%까지 오르면 어떻게 되나?">
+          <button class="primary" id="askFollow">이어서 맡기기</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>오간 것</h2>
+        <p class="hint">누가 누구에게 무엇을 맡겼고, 무엇이 돌아왔는지가 전부입니다.</p>
+        <div id="researchLog" class="log"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

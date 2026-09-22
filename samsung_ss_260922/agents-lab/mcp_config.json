@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "doc-search": {
+      "command": "python",
+      "args": [
+        "mcp-servers/doc-search/server.py"
+      ]
+    },
+    "127.0.0.1-8000": {
+      "url": "http://127.0.0.1:8000/mcp"
+    },
+    "mslearn": {
+      "url": "https://learn.microsoft.com/api/mcp"
+    }
+  }
+}

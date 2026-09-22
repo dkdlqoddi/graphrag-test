@@ -5,8 +5,8 @@ chapter: 9
 title: "7 Conclusion"
 pages: [10,10]
 category: "computing"
-summary: "이 장에서는 전적으로 attention에 기반한 sequence transduction 모델인 Transformer를 제안한 성과와 번역 작업에서의 빠른 학습 및 최신 성능을 요약한다. 또한 텍스트를 넘어 이미지·오디오·비디오로의 확장과 더 효율적인 attention 메커니즘에 대한 향후 연구 방향을 제시한다."
-keywords: ["Transformer","multi-headed self-attention","sequence transduction","encoder-decoder architectures","WMT 2014","English-to-German translation","English-to-French translation","attention-based models","local restricted attention","tensor2tensor"]
+summary: "이 장은 Transformer를 전적으로 attention에 기반한 첫 sequence transduction model로 정리하며, recurrent layer를 대체해 번역 성능과 학습 속도를 크게 개선했음을 강조한다. 또한 이미지, 오디오, 비디오 등 다른 입력·출력 양식으로의 확장과 더 효율적인 attention 기법의 가능성을 제시한다."
+keywords: ["Transformer","Multi-Head Attention","sequence transduction","encoder-decoder architectures","recurrent layers","translation tasks","WMT 2014","local attention mechanisms","images, audio and video","tensor2tensor"]
 ---
 
 # 7 Conclusion

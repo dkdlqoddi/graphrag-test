@@ -5,8 +5,8 @@ chapter: 7
 title: "5 Training"
 pages: [7,8]
 category: "computing"
-summary: "이 장은 Transformer 모델의 학습 절차를 설명하며, 데이터 배치 방식, 하드웨어와 학습 일정, Adam 옵티마이저와 학습률 스케줄, 그리고 드롭아웃과 레이블 스무딩 같은 정규화 기법을 다룬다. 또한 번역 벤치마크에서의 성능과 학습 비용을 함께 제시한다."
-keywords: ["Transformer","Adam optimizer","label smoothing","dropout","learning rate schedule","WMT 2014","byte-pair encoding","word-piece vocabulary","NVIDIA P100 GPUs","BLEU score","warmup steps","batching"]
+summary: "이 장은 Transformer 모델의 학습 절차를 다루며, 데이터 배치, 하드웨어 설정, Adam optimizer, 학습률 스케줄, 그리고 정규화 기법을 설명한다. 또한 dropout과 label smoothing이 BLEU 점수와 학습 성능에 미치는 영향을 정리한다."
+keywords: ["Transformer","Adam optimizer","learning rate","label smoothing","Residual Dropout","WMT 2014","byte-pair encoding","batching","warmup_steps","parallelization","BLEU","regularization"]
 ---
 
 # 5 Training

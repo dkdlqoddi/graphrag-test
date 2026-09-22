@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rag-lab</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="band-brand">
+    <div class="bar">
+      <div class="brand">rag-lab</div>
+      <nav id="nav">
+        <button class="tab on" data-pane="p1"><b>①</b> PDF 업로드<span>파싱</span></button>
+        <button class="tab" data-pane="p2"><b>②</b> 청킹<span>자르기</span></button>
+        <button class="tab" data-pane="p3"><b>③</b> 임베딩<span>숫자로 · 적재</span></button>
+        <button class="tab" data-pane="p4"><b>④</b> 검색<span>꺼내기</span></button>
+      </nav>
+    </div>
+  </div>
+  <div class="band-status">
+    <div class="status" id="status">
+      <span class="chip"><i>문서</i><b id="st-doc">—</b></span>
+      <span class="chip"><i>쪽 · 글자</i><b id="st-size">—</b></span>
+      <span class="chip"><i>청크</i><b id="st-chunks">—</b></span>
+      <span class="chip on"><i>적재된 청크</i><b id="st-store">0</b></span>
+      <span class="chip"><i>임베딩 모델</i><b id="st-model">—</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ① PDF 업로드 ------------------------------------------------- -->
+<section id="p1" class="pane on">
+  <h2>PDF 업로드 <span class="sub">— 파일에서 글자를 뽑아냅니다. 이 단계를 파싱이라고 합니다.</span></h2>
+
+  <ol class="substeps">
+    <li>PDF 를 고른다</li>
+    <li>글자를 뽑아낸다</li>
+    <li>페이지마다 얼마나 뽑혔는지 확인한다</li>
+  </ol>
+
+  <div class="row">
+    <input type="file" id="file" accept="application/pdf">
+    <button id="btn-upload" class="primary">업로드</button>
+    <span id="upload-msg" class="msg"></span>
+  </div>
+
+  <div id="doc-summary" class="cards hidden"></div>
+
+  <div id="doc-view" class="hidden">
+    <p class="hint">막대 하나가 한 페이지입니다. 높이는 뽑아낸 글자 수이고, 붉은 칸은 글자가 거의
+      나오지 않은 페이지입니다. 원본 PDF 의 그 쪽을 열어 무엇이 있었는지 확인해 보세요.</p>
+    <div id="page-bars" class="bars"></div>
+    <div class="row tight">
+      <button id="page-prev">◀</button>
+      <span id="page-label">1 / 1</span>
+      <button id="page-next">▶</button>
+      <span id="page-chars" class="hint"></span>
+    </div>
+    <pre id="doc-text" class="doc"></pre>
+  </div>
+</section>
+
+<!-- ② 청킹 ------------------------------------------------------- -->
+<section id="p2" class="pane">
+  <h2>청킹 <span class="sub">— 뽑아낸 글을 조각으로 자릅니다. 자르는 기준이 세 가지입니다.</span></h2>
+
+  <ol class="substeps">
+    <li>자르는 기준을 고른다</li>
+    <li>미리보기로 조각을 확인한다</li>
+    <li>조각 하나를 눌러 전문을 읽는다</li>
+  </ol>
+
+  <div id="p2-need" class="need hidden">먼저 ① 에서 PDF 를 올려 주세요.</div>
+
+  <div class="row">
+    <label><input type="radio" name="strategy" value="fixed" checked> 고정 길이</label>
+    <label><input type="radio" name="strategy" value="structure"> 구조 경계</label>
+    <label><input type="radio" name="strategy" value="paragraph"> 문단</label>
+    <label><input type="radio" name="strategy" value="semantic"> 의미 경계</label>
+    <span class="sep"></span>
+    <label id="size-wrap">길이 <input type="number" id="size" value="500" min="100" max="2000" step="50"></label>
+    <label id="pct-wrap" class="hidden">거리 상위 <input type="number" id="pct" value="10" min="1" max="50" step="1">%</label>
+    <button id="btn-chunk" class="primary">미리보기</button>
+    <span id="chunk-msg" class="msg"></span>
+  </div>
+
+  <!-- 의미 경계만 임베딩을 부른다. 백분위를 바꿔 다시 잘라도 호출은 나가지 않는다. -->
+  <p id="sem-hint" class="hint hidden">문장을 하나씩 벡터로 바꾼 뒤 이웃한 두 문장 사이의 거리를 재고,
+    거리가 <b>상위 N%</b> 인 자리에서 자릅니다. 문장 임베딩은 문서마다 한 번만 부르고 그다음부터는
+    그대로 다시 쓰므로, 상위 %만 바꿔 [미리보기] 를 눌러도 호출이 나가지 않습니다.</p>
+
+  <div id="sem-view" class="hidden">
+    <div class="chart-head">
+      <b>문장 사이 거리</b>
+      <span id="dist-max" class="hint"></span>
+      <span class="hint">막대 하나가 문장과 문장 사이입니다. 왼쪽부터 문서 순서이고,
+        높이는 앞뒤 문장이 얼마나 다른지입니다. 막대에 올리면 그 자리의 앞뒤 문장이 나옵니다.</span>
+    </div>
+    <div class="chart-wrap">
+      <div id="dist-bars" class="dist-bars"></div>
+      <i id="dist-thr" class="thr"></i>
+    </div>
+    <div class="chart-legend">
+      <span><i class="sw cut"></i> 자르는 지점 <b id="lg-cuts">0</b>곳</span>
+      <span><i class="sw"></i> 그대로 두는 경계</span>
+      <span>점선 = 임계 거리 <b id="lg-thr">0</b> — 상위 <b id="lg-pct">10</b>% 가 시작되는 높이</span>
+    </div>
+  </div>
+
+  <div id="chunk-summary" class="cards hidden"></div>
+  <div id="chunk-list" class="chunks"></div>
+</section>
+
+<!-- ③ 임베딩 ----------------------------------------------------- -->
+<section id="p3" class="pane">
+  <h2>임베딩 <span class="sub">— 조각을 숫자 배열로 바꿔 저장합니다.</span></h2>
+
+  <ol class="substeps">
+    <li>조각을 임베딩 모델로 보낸다</li>
+    <li>돌아온 숫자 배열을 저장소에 넣는다</li>
+    <li>조각 하나의 숫자를 열어 본다</li>
+  </ol>
+
+  <div id="p3-need" class="need hidden">먼저 ② 에서 청킹을 실행해 주세요.</div>
+
+  <div class="row">
+    <button id="btn-embed" class="primary">적재</button>
+    <button id="btn-clear-gen">생성 근거만 비우기</button>
+    <button id="btn-reset">저장소 비우기</button>
+    <span id="embed-msg" class="msg"></span>
+  </div>
+
+  <div id="store-summary" class="cards"></div>
+  <div id="store-docs" class="table-wrap"></div>
+
+  <div class="row tight" style="margin-top:14px">
+    <label>청크 번호 <input type="number" id="peek-idx" value="0" min="0"></label>
+    <button id="btn-peek">숫자 배열 보기</button>
+    <span id="peek-msg" class="msg"></span>
+  </div>
+  <div id="peek-out" class="vec hidden"></div>
+</section>
+
+<!-- ④ 검색 ------------------------------------------------------- -->
+<section id="p4" class="pane">
+  <h2>검색 <span class="sub">— 질문도 같은 방식으로 숫자 배열이 됩니다. 가까운 조각부터 꺼냅니다.</span></h2>
+
+  <ol class="substeps">
+    <li>필요하면 질문을 검색용 문장으로 다듬는다 (재작성 · HyDE)</li>
+    <li>질문을 숫자 배열로 바꾼다</li>
+    <li>저장된 조각과 거리를 잰다</li>
+    <li>같은 질문을 낱말로도 훑는다 (BM25)</li>
+    <li>필요하면 꺼낸 조각을 LLM 에게 한 장씩 물어 다시 줄 세운다 (재정렬)</li>
+    <li>두 결과를 나란히 놓고 무엇이 다른지 본다</li>
+    <li>꺼낸 조각을 근거로 답을 만든다 — 각각</li>
+  </ol>
+
+  <div id="p4-need" class="need hidden">먼저 ③ 에서 적재해 주세요.</div>
+
+  <div class="row">
+    <input type="text" id="query" placeholder="질문을 입력하세요" autocomplete="off">
+    <label>K <input type="number" id="k" value="5" min="1" max="20"></label>
+    <button id="btn-search" class="primary">검색</button>
+    <span id="search-msg" class="msg"></span>
+  </div>
+
+  <!-- 스위치를 파이프라인 순서대로 늘어놓는다. 무엇이 검색 앞에 붙고 무엇이 뒤에
+       붙는지가 이름만으로는 안 보이기 때문이다. -->
+  <div class="row opts">
+    <span class="opt-group"><i>검색 전</i>
+      <label class="toggle"><input type="checkbox" id="rw"> 질의 재작성</label>
+      <label class="toggle"><input type="checkbox" id="hyde"> HyDE</label>
+    </span>
+    <span class="opt-group"><i>검색</i>
+      <label class="toggle"><input type="checkbox" id="incgen" checked> 생성 근거 포함</label>
+    </span>
+    <span class="opt-group"><i>검색 후</i>
+      <label class="toggle"><input type="checkbox" id="rr"> LLM 재정렬</label>
+      <label class="toggle"><input type="checkbox" id="why" checked> 근거 하이라이트</label>
+      <label class="toggle"><input type="checkbox" id="gen"> 답변 생성</label>
+      <label class="toggle"><input type="checkbox" id="save"> 답변을 근거로 저장</label>
+    </span>
+  </div>
+
+  <!-- 검색에 쓴 문장과 답변에 쓸 문장이 다를 수 있다. 무엇으로 찾았는지를 감추지 않는다. -->
+  <div id="rewrite-box" class="rewrite hidden"></div>
+
+  <!-- HyDE 초안은 사실 확인을 하지 않은 추측이다. 답처럼 보이면 안 된다. -->
+  <div id="hyde-box" class="hyde hidden"></div>
+
+  <!-- 재정렬은 순서를 바꾼다. 무엇을 기준으로 바꿨는지 밝히지 않으면 화면이 설명되지 않는다. -->
+  <div id="rerank-box" class="rerank hidden"></div>
+
+  <!-- 저장소에 모델의 글이 들어갔다는 사실은 반드시 눈에 띄어야 한다. -->
+  <div id="saved-box" class="saved hidden"></div>
+
+  <!-- 표시하는 근거는 두 열이 서로 다른 말로 한다. 왼쪽은 임베딩 거리, 오른쪽은 맞은 낱말. -->
+  <div id="why-legend" class="legend hidden">
+    <span><mark class="hl top">진한 표시</mark> 왼쪽: 질문과 가장 가까운 문장 · 오른쪽: 점수를 가장 크게 올린 낱말</span>
+    <span><mark class="hl">옅은 표시</mark> 왼쪽: 청크 전체보다 가까운 문장 · 오른쪽: 그 밖에 맞은 낱말</span>
+    <span class="hint">조각을 누르면 전문이 펼쳐집니다.</span>
+  </div>
+
+  <div id="query-vec" class="vec hidden"></div>
+
+  <!-- 같은 질문, 같은 저장소, 다른 방식. 둘을 섞지 않고 나란히 둔다 —
+       섞으면 무엇이 무엇을 찾았는지 화면에서 사라진다. -->
+  <div class="duo">
+    <section class="col">
+      <h3>의미 검색 <span class="tag">임베딩 · 코사인 거리</span></h3>
+      <p class="hint">질문과 조각을 같은 모델로 벡터로 바꿔 가까운 순으로 꺼냅니다.
+        낱말이 하나도 겹치지 않아도, 질문과 문서의 언어가 달라도 찾습니다.
+        거리는 0 에 가까울수록 가깝습니다(유사도 = 1 − 거리).</p>
+      <div id="stat-semantic" class="col-stat hidden"></div>
+      <div id="rr-semantic" class="rr-panel hidden"></div>
+      <div id="ans-semantic" class="answer hidden"></div>
+      <div id="hits-semantic" class="chunks"></div>
+    </section>
+
+    <section class="col">
+      <h3>BM25 <span class="tag">낱말 빈도 · 점수</span></h3>
+      <p class="hint">질문에 든 낱말이 조각에 몇 번 나오는지로 점수를 냅니다. 여러 조각에
+        흔히 나오는 낱말은 적게 칩니다. 외부 호출이 없고, 겹치는 낱말이 없으면 못 찾습니다.
+        점수는 0~1 이 아니라 같은 질문 안에서 순위를 매기는 값입니다.</p>
+      <div id="stat-bm25" class="col-stat hidden"></div>
+      <div id="rr-bm25" class="rr-panel hidden"></div>
+      <div id="ans-bm25" class="answer hidden"></div>
+      <div id="hits-bm25" class="chunks"></div>
+    </section>
+  </div>
+</section>
+
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-22T08:02:42.690Z",
+  "updatedAt": "2026-09-22T08:37:05.904Z",
   "documents": {
     "attention-is-all-you-need": {
       "slug": "attention-is-all-you-need",
@@ -8,16 +8,16 @@
       "sourceFile": "attention.pdf",
       "pages": 15,
       "category": "computing",
-      "summary": "이 문서는 순환 신경망이나 합성곱 없이 attention만으로 동작하는 Transformer를 제안하고, 기계번역과 구문 분석에서의 우수한 성능과 병렬 처리 이점을 설명한다. 또한 모델 구조, self-attention의 장점, 학습 방법, 실험 결과와 향후 확장 가능성까지 체계적으로 정리한다.",
+      "summary": "이 문서는 순환 신경망이나 합성곱 대신 self-attention과 multi-head attention만으로 시퀀스 변환 문제를 푸는 Transformer를 제안하고, 기계번역에서의 성능 향상과 병렬화 이점을 설명한다. 또한 구조, 학습 방법, 실험 결과를 통해 Transformer의 일반화 가능성과 향후 확장 가능성을 보여준다.",
       "keywords": [
+        "attention",
         "transformer",
         "self-attention",
+        "sequence transduction",
         "machine translation",
         "encoder-decoder",
-        "parallelization",
-        "long-range dependencies",
         "multi-head attention",
-        "bleu"
+        "positional encoding"
       ],
       "chapters": [
         "attention-is-all-you-need__c1",
@@ -31,7 +31,7 @@
         "attention-is-all-you-need__c9",
         "attention-is-all-you-need__c10"
       ],
-      "createdAt": "2026-09-22T08:02:42.689Z"
+      "createdAt": "2026-09-22T08:37:05.901Z"
     }
   },
   "chapters": {
@@ -46,7 +46,7 @@
         1
       ],
       "chars": 582,
-      "summary": "이 논문은 시퀀스 변환 문제를 위해 순환 구조나 합성곱 없이 오직 attention만으로 동작하는 Transformer를 제안한다. 병렬 처리와 장거리 의존성 학습의 장점을 통해 기계번역 성능을 크게 향상시키는 것이 핵심이다.",
+      "summary": "이 장은 기계번역을 포함한 시퀀스 변환 문제를 해결하기 위해 제안된 Transformer와 그 핵심 메커니즘인 attention을 소개한다. RNN이나 CNN 대신 self-attention만으로 병렬화와 성능 향상을 달성하는 방향을 제시한다.",
       "category": "computing",
       "keywords": [
         {
@@ -59,7 +59,7 @@
         },
         {
           "term": "self-attention",
-          "weight": 0.92
+          "weight": 0.95
         },
         {
           "term": "sequence transduction",
@@ -67,27 +67,27 @@
         },
         {
           "term": "machine translation",
-          "weight": 0.76
+          "weight": 0.72
         },
         {
           "term": "encoder-decoder",
           "weight": 0.7
         },
         {
-          "term": "parallelization",
-          "weight": 0.62
+          "term": "recurrent neural networks",
+          "weight": 0.66
         },
         {
-          "term": "recurrent networks",
+          "term": "cnn",
           "weight": 0.6
         },
         {
-          "term": "convolutional networks",
+          "term": "parallelization",
           "weight": 0.55
         },
         {
-          "term": "long-range dependencies",
-          "weight": 0.5
+          "term": "google brain",
+          "weight": 0.42
         }
       ]
     },
@@ -102,7 +102,7 @@
         1
       ],
       "chars": 2244,
-      "summary": "복잡한 순환·합성곱 신경망 대신 attention만으로 이루어진 Transformer를 제안하며, 기계 번역과 구문 분석에서 더 높은 품질과 더 나은 병렬성을 보인다고 설명한다. 특히 WMT 번역 작업에서 BLEU 점수를 크게 향상시키고, 다양한 작업으로의 일반화 가능성을 보인다.",
+      "summary": "Transformer는 순환이나 합성곱 없이 attention만으로 동작하는 새로운 시퀀스 변환 모델로, 기계번역에서 기존 최고 성능을 뛰어넘고 학습 효율도 크게 개선했다. 또한 영어 구문 분석에도 잘 일반화되어 self-attention 기반 구조의 범용성을 보여준다.",
       "category": "computing",
       "keywords": [
         {
@@ -111,22 +111,30 @@
         },
         {
           "term": "attention mechanism",
-          "weight": 0.94
-        },
-        {
-          "term": "machine translation",
-          "weight": 0.86
+          "weight": 0.96
         },
         {
           "term": "self-attention",
-          "weight": 0.82
+          "weight": 0.93
         },
         {
-          "term": "multi-head attention",
-          "weight": 0.78
+          "term": "machine translation",
+          "weight": 0.9
         },
         {
           "term": "encoder-decoder",
+          "weight": 0.78
+        },
+        {
+          "term": "multi-head attention",
+          "weight": 0.76
+        },
+        {
+          "term": "scaled dot-product attention",
+          "weight": 0.73
+        },
+        {
+          "term": "wmt 2014",
           "weight": 0.7
         },
         {
@@ -134,24 +142,12 @@
           "weight": 0.68
         },
         {
-          "term": "wmt 2014",
-          "weight": 0.64
-        },
-        {
-          "term": "english-german translation",
-          "weight": 0.6
-        },
-        {
-          "term": "english-french translation",
-          "weight": 0.58
-        },
-        {
-          "term": "gpu",
-          "weight": 0.5
-        },
-        {
           "term": "english constituency parsing",
-          "weight": 0.46
+          "weight": 0.62
+        },
+        {
+          "term": "parallelization",
+          "weight": 0.55
         }
       ]
     },
@@ -166,7 +162,7 @@
         2
       ],
       "chars": 1900,
-      "summary": "기존의 순환 신경망과 LSTM, GRU는 시퀀스 모델링과 기계 번역에서 강력했지만, 계산이 순차적이라 병렬화에 한계가 있었다. 이 장에서는 이러한 제약을 대체하기 위해 순환 없이 주의 메커니즘만으로 전역 의존성을 학습하는 Transformer를 제안한다.",
+      "summary": "이 장에서는 순환 신경망 기반의 시퀀스 모델링 한계를 설명하고, 이를 대체할 Transformer를 제안한다. Transformer는 recurrence 없이 attention mechanism만으로 전역 의존성을 모델링하며, 더 높은 병렬화와 번역 성능을 달성한다.",
       "category": "computing",
       "keywords": [
         {
@@ -179,39 +175,35 @@
         },
         {
           "term": "sequence modeling",
-          "weight": 0.8
+          "weight": 0.84
         },
         {
           "term": "machine translation",
-          "weight": 0.78
+          "weight": 0.8
         },
         {
           "term": "recurrent neural networks",
-          "weight": 0.72
-        },
-        {
-          "term": "lstm",
-          "weight": 0.7
-        },
-        {
-          "term": "gru",
-          "weight": 0.68
+          "weight": 0.78
         },
         {
           "term": "encoder-decoder architectures",
-          "weight": 0.6
+          "weight": 0.62
         },
         {
-          "term": "parallelization",
+          "term": "long short-term memory",
           "weight": 0.58
         },
         {
-          "term": "global dependencies",
+          "term": "parallelization",
           "weight": 0.5
         },
         {
-          "term": "gpu",
-          "weight": 0.45
+          "term": "global dependencies",
+          "weight": 0.48
+        },
+        {
+          "term": "conditional computation",
+          "weight": 0.36
         }
       ]
     },
@@ -226,7 +218,7 @@
         2
       ],
       "chars": 1809,
-      "summary": "이 절은 순차적 계산을 줄이기 위한 기존 모델들(Extended Neural GPU, ByteNet, ConvS2S)과 self-attention의 배경을 설명한다. Transformer가 RNN이나 convolution 없이 self-attention만으로 입력·출력 표현을 계산하는 첫 transduction model임을 강조한다.",
+      "summary": "Transformer는 순차적 계산을 줄이기 위해 self-attention만으로 입력과 출력을 표현하는 최초의 transduction 모델로 소개된다. 기존의 convolutional 모델과 RNN 기반 모델과 비교해, 멀리 떨어진 위치 간 의존성을 더 효율적으로 학습할 수 있음을 설명한다.",
       "category": "computing",
       "keywords": [
         {
@@ -235,39 +227,47 @@
         },
         {
           "term": "self-attention",
-          "weight": 0.97
+          "weight": 0.95
         },
         {
           "term": "multi-head attention",
-          "weight": 0.82
+          "weight": 0.9
         },
         {
           "term": "convolutional neural networks",
-          "weight": 0.74
+          "weight": 0.78
         },
         {
-          "term": "rnn",
-          "weight": 0.7
+          "term": "recurrent neural networks",
+          "weight": 0.72
         },
         {
           "term": "bytenet",
-          "weight": 0.66
+          "weight": 0.65
         },
         {
           "term": "convs2s",
-          "weight": 0.64
+          "weight": 0.63
         },
         {
           "term": "extended neural gpu",
-          "weight": 0.6
+          "weight": 0.58
         },
         {
           "term": "end-to-end memory networks",
-          "weight": 0.54
+          "weight": 0.57
         },
         {
           "term": "sequence-aligned recurrence",
-          "weight": 0.48
+          "weight": 0.5
+        },
+        {
+          "term": "reading comprehension",
+          "weight": 0.46
+        },
+        {
+          "term": "abstractive summarization",
+          "weight": 0.44
         }
       ]
     },
@@ -282,7 +282,7 @@
         6
       ],
       "chars": 9870,
-      "summary": "이 절은 Transformer의 전체 모델 구조를 설명하며, 인코더-디코더 스택, 스케일드 닷-프로덕트 어텐션, 멀티헤드 어텐션, 위치별 피드포워드 नेटवर्क, 임베딩, 위치 인코딩을 제시한다. 또한 순환이나 합성곱 없이도 순서를 반영하기 위해 마스킹과 사인·코사인 기반 positional encoding을 사용하는 방식을 설명한다.",
+      "summary": "이 장은 Transformer의 핵심 구조인 인코더-디코더 아키텍처와 self-attention, multi-head attention의 동작 원리를 설명한다. 또한 position-wise feed-forward network, embeddings, positional encoding을 통해 순서 정보를 모델에 주입하는 방법을 다룬다.",
       "category": "computing",
       "keywords": [
         {
@@ -290,48 +290,48 @@
           "weight": 1
         },
         {
-          "term": "멀티헤드 어텐션",
-          "weight": 0.95
-        },
-        {
-          "term": "positional encoding",
+          "term": "encoder-decoder",
           "weight": 0.93
         },
         {
-          "term": "인코더-디코더 구조",
-          "weight": 0.9
-        },
-        {
-          "term": "스케일드 닷-프로덕트 어텐션",
-          "weight": 0.88
+          "term": "multi-head attention",
+          "weight": 0.92
         },
         {
           "term": "self-attention",
-          "weight": 0.82
+          "weight": 0.9
         },
         {
-          "term": "position-wise feed-forward network",
-          "weight": 0.76
+          "term": "scaled dot-product attention",
+          "weight": 0.87
+        },
+        {
+          "term": "positional encoding",
+          "weight": 0.84
+        },
+        {
+          "term": "layer normalization",
+          "weight": 0.72
         },
         {
           "term": "residual connection",
           "weight": 0.7
         },
         {
-          "term": "layer normalization",
-          "weight": 0.66
+          "term": "position-wise feed-forward network",
+          "weight": 0.68
         },
         {
-          "term": "마스킹",
-          "weight": 0.6
-        },
-        {
-          "term": "embedding",
-          "weight": 0.58
+          "term": "auto-regressive",
+          "weight": 0.63
         },
         {
           "term": "softmax",
-          "weight": 0.5
+          "weight": 0.52
+        },
+        {
+          "term": "relu",
+          "weight": 0.45
         }
       ]
     },
@@ -346,7 +346,7 @@
         7
       ],
       "chars": 3179,
-      "summary": "이 절에서는 self-attention을 recurrent layer와 convolutional layer와 비교하며, 계산 복잡도, 병렬화 가능성, 그리고 장거리 의존성까지의 경로 길이를 기준으로 장단점을 설명한다. 또한 self-attention이 해석 가능성을 높일 수 있음을 언급한다.",
+      "summary": "이 절은 self-attention이 recurrent layer와 convolutional layer에 비해 계산 복잡도, 병렬화 가능성, 장거리 의존성 학습 측면에서 왜 유리한지 비교한다. 또한 attention head가 문장의 구문·의미 구조를 반영할 수 있어 해석 가능성도 높아질 수 있음을 보인다.",
       "category": "computing",
       "keywords": [
         {
@@ -355,7 +355,7 @@
         },
         {
           "term": "recurrent layer",
-          "weight": 0.93
+          "weight": 0.92
         },
         {
           "term": "convolutional layer",
@@ -363,7 +363,7 @@
         },
         {
           "term": "long-range dependencies",
-          "weight": 0.86
+          "weight": 0.84
         },
         {
           "term": "computational complexity",
@@ -371,31 +371,31 @@
         },
         {
           "term": "parallelization",
-          "weight": 0.76
-        },
-        {
-          "term": "path length",
           "weight": 0.72
         },
         {
+          "term": "path length",
+          "weight": 0.7
+        },
+        {
           "term": "sequence transduction",
-          "weight": 0.63
+          "weight": 0.62
         },
         {
-          "term": "dilated convolutions",
-          "weight": 0.57
-        },
-        {
-          "term": "separable convolutions",
+          "term": "word-piece",
           "weight": 0.54
         },
         {
-          "term": "attention heads",
+          "term": "byte-pair",
+          "weight": 0.54
+        },
+        {
+          "term": "separable convolutions",
           "weight": 0.5
         },
         {
-          "term": "byte-pair",
-          "weight": 0.4
+          "term": "attention heads",
+          "weight": 0.48
         }
       ]
     },
@@ -410,7 +410,7 @@
         8
       ],
       "chars": 2709,
-      "summary": "이 장은 Transformer 모델의 학습 절차를 설명하며, 데이터 배치 방식, 하드웨어와 학습 일정, Adam 옵티마이저와 학습률 스케줄, 그리고 드롭아웃과 레이블 스무딩 같은 정규화 기법을 다룬다. 또한 번역 벤치마크에서의 성능과 학습 비용을 함께 제시한다.",
+      "summary": "이 장은 Transformer 모델의 학습 절차를 다루며, 데이터 배치, 하드웨어 설정, Adam optimizer, 학습률 스케줄, 그리고 정규화 기법을 설명한다. 또한 dropout과 label smoothing이 BLEU 점수와 학습 성능에 미치는 영향을 정리한다.",
       "category": "computing",
       "keywords": [
         {
@@ -422,16 +422,16 @@
           "weight": 0.9
         },
         {
-          "term": "label smoothing",
-          "weight": 0.82
+          "term": "learning rate",
+          "weight": 0.85
         },
         {
-          "term": "dropout",
+          "term": "label smoothing",
           "weight": 0.8
         },
         {
-          "term": "learning rate schedule",
-          "weight": 0.76
+          "term": "residual dropout",
+          "weight": 0.75
         },
         {
           "term": "wmt 2014",
@@ -439,27 +439,27 @@
         },
         {
           "term": "byte-pair encoding",
-          "weight": 0.68
-        },
-        {
-          "term": "word-piece vocabulary",
-          "weight": 0.6
-        },
-        {
-          "term": "nvidia p100 gpus",
-          "weight": 0.58
-        },
-        {
-          "term": "bleu score",
-          "weight": 0.55
-        },
-        {
-          "term": "warmup steps",
-          "weight": 0.5
+          "weight": 0.7
         },
         {
           "term": "batching",
-          "weight": 0.45
+          "weight": 0.62
+        },
+        {
+          "term": "warmup_steps",
+          "weight": 0.6
+        },
+        {
+          "term": "parallelization",
+          "weight": 0.58
+        },
+        {
+          "term": "bleu",
+          "weight": 0.55
+        },
+        {
+          "term": "regularization",
+          "weight": 0.5
         }
       ]
     },
@@ -474,7 +474,7 @@
         10
       ],
       "chars": 5934,
-      "summary": "Transformer는 기계번역과 영어 구문 분석에서 기존 모델을 크게 능가하며, 적은 학습 비용으로도 높은 성능을 보였다. 또한 어텐션 헤드 수, 차원, 드롭아웃, 위치 인코딩 등 모델 변형이 성능에 미치는 영향을 분석했다.",
+      "summary": "Transformer 모델의 기계번역 성능과 구조 변형, 그리고 영어 구문 분석으로의 일반화 능력을 평가한 결과를 제시한다. WMT 2014 영어-독일어/프랑스어 번역에서 새로운 최고 성능을 보였고, WSJ 기반 constituency parsing에서도 강한 성능을 확인했다.",
       "category": "computing",
       "keywords": [
         {
@@ -482,48 +482,48 @@
           "weight": 1
         },
         {
-          "term": "기계번역",
-          "weight": 0.96
+          "term": "machine translation",
+          "weight": 0.97
         },
         {
           "term": "bleu",
-          "weight": 0.9
+          "weight": 0.92
         },
         {
           "term": "wmt 2014",
           "weight": 0.86
         },
         {
-          "term": "어텐션 헤드",
-          "weight": 0.8
+          "term": "english-to-german",
+          "weight": 0.84
+        },
+        {
+          "term": "english-to-french",
+          "weight": 0.81
         },
         {
           "term": "beam search",
-          "weight": 0.74
+          "weight": 0.76
         },
         {
-          "term": "포지셔널 인코딩",
+          "term": "positional encoding",
+          "weight": 0.73
+        },
+        {
+          "term": "english constituency parsing",
           "weight": 0.7
         },
         {
-          "term": "드롭아웃",
-          "weight": 0.66
-        },
-        {
-          "term": "영어 구문 분석",
+          "term": "penn treebank",
           "weight": 0.62
         },
         {
-          "term": "penn treebank",
-          "weight": 0.56
+          "term": "dropout",
+          "weight": 0.6
         },
         {
-          "term": "p100 gpu",
-          "weight": 0.5
-        },
-        {
-          "term": "perplexity",
-          "weight": 0.44
+          "term": "rnn sequence-to-sequence models",
+          "weight": 0.55
         }
       ]
     },
@@ -538,7 +538,7 @@
         10
       ],
       "chars": 1213,
-      "summary": "이 장에서는 전적으로 attention에 기반한 sequence transduction 모델인 Transformer를 제안한 성과와 번역 작업에서의 빠른 학습 및 최신 성능을 요약한다. 또한 텍스트를 넘어 이미지·오디오·비디오로의 확장과 더 효율적인 attention 메커니즘에 대한 향후 연구 방향을 제시한다.",
+      "summary": "이 장은 Transformer를 전적으로 attention에 기반한 첫 sequence transduction model로 정리하며, recurrent layer를 대체해 번역 성능과 학습 속도를 크게 개선했음을 강조한다. 또한 이미지, 오디오, 비디오 등 다른 입력·출력 양식으로의 확장과 더 효율적인 attention 기법의 가능성을 제시한다.",
       "category": "computing",
       "keywords": [
         {
@@ -546,36 +546,36 @@
           "weight": 1
         },
         {
-          "term": "multi-headed self-attention",
-          "weight": 0.95
+          "term": "multi-head attention",
+          "weight": 0.9
         },
         {
           "term": "sequence transduction",
-          "weight": 0.84
+          "weight": 0.8
         },
         {
           "term": "encoder-decoder architectures",
           "weight": 0.75
         },
         {
-          "term": "wmt 2014",
+          "term": "recurrent layers",
           "weight": 0.7
         },
         {
-          "term": "english-to-german translation",
-          "weight": 0.66
+          "term": "translation tasks",
+          "weight": 0.65
         },
         {
-          "term": "english-to-french translation",
-          "weight": 0.66
-        },
-        {
-          "term": "attention-based models",
+          "term": "wmt 2014",
           "weight": 0.6
         },
         {
-          "term": "local restricted attention",
-          "weight": 0.52
+          "term": "local attention mechanisms",
+          "weight": 0.55
+        },
+        {
+          "term": "images, audio and video",
+          "weight": 0.5
         },
         {
           "term": "tensor2tensor",
@@ -594,48 +594,56 @@
         15
       ],
       "chars": 9196,
-      "summary": "이 장은 참고문헌과 함께, Transformer의 인코더 셀프어텐션이 장거리 의존성과 문장 구조를 어떻게 포착하는지 보여주는 시각화 예시를 포함한다. attention heads가 동사-보어 연결, 대명사 해소, 구문 구조 학습에 기여함을 설명한다.",
+      "summary": "이 장은 참고문헌 목록으로, Transformer와 관련된 선행 연구들을 나열하고 있다. 주제는 주로 attention, sequence to sequence learning, recurrent neural networks 계열의 방법들이다.",
       "category": "computing",
       "keywords": [
         {
-          "term": "self-attention",
+          "term": "attention",
           "weight": 1
         },
         {
-          "term": "transformer",
-          "weight": 0.96
+          "term": "sequence transduction",
+          "weight": 0.95
         },
         {
-          "term": "encoder self-attention",
+          "term": "neural machine translation",
+          "weight": 0.92
+        },
+        {
+          "term": "recurrent neural networks",
           "weight": 0.9
         },
         {
-          "term": "attention heads",
-          "weight": 0.84
+          "term": "self-attention",
+          "weight": 0.88
         },
         {
-          "term": "long-distance dependencies",
+          "term": "layer normalization",
+          "weight": 0.82
+        },
+        {
+          "term": "lstm",
           "weight": 0.8
         },
         {
-          "term": "anaphora resolution",
-          "weight": 0.74
+          "term": "adam",
+          "weight": 0.76
         },
         {
-          "term": "machine translation",
-          "weight": 0.7
+          "term": "dropout",
+          "weight": 0.72
         },
         {
-          "term": "sequence modeling",
-          "weight": 0.64
+          "term": "machine reading",
+          "weight": 0.68
         },
         {
-          "term": "layer 5",
-          "weight": 0.56
+          "term": "penn treebank",
+          "weight": 0.62
         },
         {
-          "term": "syntactic structure",
-          "weight": 0.52
+          "term": "deep residual learning",
+          "weight": 0.6
         }
       ]
     }
@@ -643,15 +651,16 @@
   "keywords": {
     "attention": {
       "term": "attention",
-      "label": "Attention",
+      "label": "attention",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c1"
+        "attention-is-all-you-need__c1",
+        "attention-is-all-you-need__c10"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 1
+      "count": 2
     },
     "transformer": {
       "term": "transformer",
@@ -665,13 +674,12 @@
         "attention-is-all-you-need__c5",
         "attention-is-all-you-need__c7",
         "attention-is-all-you-need__c8",
-        "attention-is-all-you-need__c9",
-        "attention-is-all-you-need__c10"
+        "attention-is-all-you-need__c9"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 9
+      "count": 8
     },
     "self-attention": {
       "term": "self-attention",
@@ -697,12 +705,13 @@
       "chapters": [
         "attention-is-all-you-need__c1",
         "attention-is-all-you-need__c6",
-        "attention-is-all-you-need__c9"
+        "attention-is-all-you-need__c9",
+        "attention-is-all-you-need__c10"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 3
+      "count": 4
     },
     "machine translation": {
       "term": "machine translation",
@@ -712,7 +721,7 @@
         "attention-is-all-you-need__c1",
         "attention-is-all-you-need__c2",
         "attention-is-all-you-need__c3",
-        "attention-is-all-you-need__c10"
+        "attention-is-all-you-need__c8"
       ],
       "docs": [
         "attention-is-all-you-need"
@@ -725,12 +734,40 @@
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c1",
-        "attention-is-all-you-need__c2"
+        "attention-is-all-you-need__c2",
+        "attention-is-all-you-need__c5"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 2
+      "count": 3
+    },
+    "recurrent neural networks": {
+      "term": "recurrent neural networks",
+      "label": "recurrent neural networks",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c1",
+        "attention-is-all-you-need__c3",
+        "attention-is-all-you-need__c4",
+        "attention-is-all-you-need__c10"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 4
+    },
+    "cnn": {
+      "term": "cnn",
+      "label": "CNN",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c1"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
     },
     "parallelization": {
       "term": "parallelization",
@@ -738,17 +775,19 @@
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c1",
+        "attention-is-all-you-need__c2",
         "attention-is-all-you-need__c3",
-        "attention-is-all-you-need__c6"
+        "attention-is-all-you-need__c6",
+        "attention-is-all-you-need__c7"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 3
+      "count": 5
     },
-    "recurrent networks": {
-      "term": "recurrent networks",
-      "label": "recurrent networks",
+    "google brain": {
+      "term": "google brain",
+      "label": "Google Brain",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c1"
@@ -757,31 +796,6 @@
         "attention-is-all-you-need"
       ],
       "count": 1
-    },
-    "convolutional networks": {
-      "term": "convolutional networks",
-      "label": "convolutional networks",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c1"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "long-range dependencies": {
-      "term": "long-range dependencies",
-      "label": "long-range dependencies",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c1",
-        "attention-is-all-you-need__c6"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 2
     },
     "attention mechanism": {
       "term": "attention mechanism",
@@ -802,20 +816,22 @@
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c2",
-        "attention-is-all-you-need__c4"
+        "attention-is-all-you-need__c4",
+        "attention-is-all-you-need__c5",
+        "attention-is-all-you-need__c9"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 2
+      "count": 4
     },
-    "bleu": {
-      "term": "bleu",
-      "label": "BLEU",
+    "scaled dot-product attention": {
+      "term": "scaled dot-product attention",
+      "label": "scaled dot-product attention",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c2",
-        "attention-is-all-you-need__c8"
+        "attention-is-all-you-need__c5"
       ],
       "docs": [
         "attention-is-all-you-need"
@@ -837,95 +853,36 @@
       ],
       "count": 4
     },
-    "english-german translation": {
-      "term": "english-german translation",
-      "label": "English-German translation",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c2"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "english-french translation": {
-      "term": "english-french translation",
-      "label": "English-French translation",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c2"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "gpu": {
-      "term": "gpu",
-      "label": "GPU",
+    "bleu": {
+      "term": "bleu",
+      "label": "BLEU",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c2",
-        "attention-is-all-you-need__c3"
+        "attention-is-all-you-need__c7",
+        "attention-is-all-you-need__c8"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 2
+      "count": 3
     },
     "english constituency parsing": {
       "term": "english constituency parsing",
       "label": "English constituency parsing",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c2"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "sequence modeling": {
-      "term": "sequence modeling",
-      "label": "sequence modeling",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c3",
-        "attention-is-all-you-need__c10"
+        "attention-is-all-you-need__c2",
+        "attention-is-all-you-need__c8"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
       "count": 2
     },
-    "recurrent neural networks": {
-      "term": "recurrent neural networks",
-      "label": "recurrent neural networks",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c3"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "lstm": {
-      "term": "lstm",
-      "label": "LSTM",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c3"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "gru": {
-      "term": "gru",
-      "label": "GRU",
+    "sequence modeling": {
+      "term": "sequence modeling",
+      "label": "sequence modeling",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c3"
@@ -948,6 +905,18 @@
       ],
       "count": 2
     },
+    "long short-term memory": {
+      "term": "long short-term memory",
+      "label": "long short-term memory",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c3"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
     "global dependencies": {
       "term": "global dependencies",
       "label": "global dependencies",
@@ -960,21 +929,21 @@
       ],
       "count": 1
     },
-    "convolutional neural networks": {
-      "term": "convolutional neural networks",
-      "label": "convolutional neural networks",
+    "conditional computation": {
+      "term": "conditional computation",
+      "label": "conditional computation",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c4"
+        "attention-is-all-you-need__c3"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
       "count": 1
     },
-    "rnn": {
-      "term": "rnn",
-      "label": "RNN",
+    "convolutional neural networks": {
+      "term": "convolutional neural networks",
+      "label": "convolutional neural networks",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c4"
@@ -1044,12 +1013,24 @@
       ],
       "count": 1
     },
-    "멀티헤드 어텐션": {
-      "term": "멀티헤드 어텐션",
-      "label": "멀티헤드 어텐션",
+    "reading comprehension": {
+      "term": "reading comprehension",
+      "label": "reading comprehension",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c5"
+        "attention-is-all-you-need__c4"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
+    "abstractive summarization": {
+      "term": "abstractive summarization",
+      "label": "abstractive summarization",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c4"
       ],
       "docs": [
         "attention-is-all-you-need"
@@ -1061,28 +1042,30 @@
       "label": "positional encoding",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c5"
+        "attention-is-all-you-need__c5",
+        "attention-is-all-you-need__c8"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 1
+      "count": 2
     },
-    "인코더-디코더 구조": {
-      "term": "인코더-디코더 구조",
-      "label": "인코더-디코더 구조",
+    "layer normalization": {
+      "term": "layer normalization",
+      "label": "layer normalization",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c5"
+        "attention-is-all-you-need__c5",
+        "attention-is-all-you-need__c10"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 1
+      "count": 2
     },
-    "스케일드 닷-프로덕트 어텐션": {
-      "term": "스케일드 닷-프로덕트 어텐션",
-      "label": "스케일드 닷-프로덕트 어텐션",
+    "residual connection": {
+      "term": "residual connection",
+      "label": "residual connection",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c5"
@@ -1104,45 +1087,9 @@
       ],
       "count": 1
     },
-    "residual connection": {
-      "term": "residual connection",
-      "label": "residual connection",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c5"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "layer normalization": {
-      "term": "layer normalization",
-      "label": "layer normalization",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c5"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "마스킹": {
-      "term": "마스킹",
-      "label": "마스킹",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c5"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "embedding": {
-      "term": "embedding",
-      "label": "embedding",
+    "auto-regressive": {
+      "term": "auto-regressive",
+      "label": "auto-regressive",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c5"
@@ -1155,6 +1102,18 @@
     "softmax": {
       "term": "softmax",
       "label": "softmax",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c5"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
+    "relu": {
+      "term": "relu",
+      "label": "ReLU",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c5"
@@ -1188,6 +1147,18 @@
       ],
       "count": 1
     },
+    "long-range dependencies": {
+      "term": "long-range dependencies",
+      "label": "long-range dependencies",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c6"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
     "computational complexity": {
       "term": "computational complexity",
       "label": "computational complexity",
@@ -1212,9 +1183,21 @@
       ],
       "count": 1
     },
-    "dilated convolutions": {
-      "term": "dilated convolutions",
-      "label": "dilated convolutions",
+    "word-piece": {
+      "term": "word-piece",
+      "label": "word-piece",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c6"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
+    "byte-pair": {
+      "term": "byte-pair",
+      "label": "byte-pair",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c6"
@@ -1241,19 +1224,6 @@
       "label": "attention heads",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c6",
-        "attention-is-all-you-need__c10"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 2
-    },
-    "byte-pair": {
-      "term": "byte-pair",
-      "label": "byte-pair",
-      "category": "computing",
-      "chapters": [
         "attention-is-all-you-need__c6"
       ],
       "docs": [
@@ -1264,6 +1234,18 @@
     "adam optimizer": {
       "term": "adam optimizer",
       "label": "Adam optimizer",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c7"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
+    "learning rate": {
+      "term": "learning rate",
+      "label": "learning rate",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c7"
@@ -1285,21 +1267,9 @@
       ],
       "count": 1
     },
-    "dropout": {
-      "term": "dropout",
-      "label": "dropout",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c7"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "learning rate schedule": {
-      "term": "learning rate schedule",
-      "label": "learning rate schedule",
+    "residual dropout": {
+      "term": "residual dropout",
+      "label": "Residual Dropout",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c7"
@@ -1321,54 +1291,6 @@
       ],
       "count": 1
     },
-    "word-piece vocabulary": {
-      "term": "word-piece vocabulary",
-      "label": "word-piece vocabulary",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c7"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "nvidia p100 gpus": {
-      "term": "nvidia p100 gpus",
-      "label": "NVIDIA P100 GPUs",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c7"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "bleu score": {
-      "term": "bleu score",
-      "label": "BLEU score",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c7"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "warmup steps": {
-      "term": "warmup steps",
-      "label": "warmup steps",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c7"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
     "batching": {
       "term": "batching",
       "label": "batching",
@@ -1381,9 +1303,33 @@
       ],
       "count": 1
     },
-    "기계번역": {
-      "term": "기계번역",
-      "label": "기계번역",
+    "warmup_steps": {
+      "term": "warmup_steps",
+      "label": "warmup_steps",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c7"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
+    "regularization": {
+      "term": "regularization",
+      "label": "regularization",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c7"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 1
+    },
+    "english-to-german": {
+      "term": "english-to-german",
+      "label": "English-to-German",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c8"
@@ -1393,9 +1339,9 @@
       ],
       "count": 1
     },
-    "어텐션 헤드": {
-      "term": "어텐션 헤드",
-      "label": "어텐션 헤드",
+    "english-to-french": {
+      "term": "english-to-french",
+      "label": "English-to-French",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c8"
@@ -1417,57 +1363,35 @@
       ],
       "count": 1
     },
-    "포지셔널 인코딩": {
-      "term": "포지셔널 인코딩",
-      "label": "포지셔널 인코딩",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c8"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "드롭아웃": {
-      "term": "드롭아웃",
-      "label": "드롭아웃",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c8"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "영어 구문 분석": {
-      "term": "영어 구문 분석",
-      "label": "영어 구문 분석",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c8"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
     "penn treebank": {
       "term": "penn treebank",
       "label": "Penn Treebank",
       "category": "computing",
       "chapters": [
-        "attention-is-all-you-need__c8"
+        "attention-is-all-you-need__c8",
+        "attention-is-all-you-need__c10"
       ],
       "docs": [
         "attention-is-all-you-need"
       ],
-      "count": 1
+      "count": 2
     },
-    "p100 gpu": {
-      "term": "p100 gpu",
-      "label": "P100 GPU",
+    "dropout": {
+      "term": "dropout",
+      "label": "dropout",
+      "category": "computing",
+      "chapters": [
+        "attention-is-all-you-need__c8",
+        "attention-is-all-you-need__c10"
+      ],
+      "docs": [
+        "attention-is-all-you-need"
+      ],
+      "count": 2
+    },
+    "rnn sequence-to-sequence models": {
+      "term": "rnn sequence-to-sequence models",
+      "label": "RNN sequence-to-sequence models",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c8"
@@ -1477,21 +1401,9 @@
       ],
       "count": 1
     },
-    "perplexity": {
-      "term": "perplexity",
-      "label": "perplexity",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c8"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "multi-headed self-attention": {
-      "term": "multi-headed self-attention",
-      "label": "multi-headed self-attention",
+    "recurrent layers": {
+      "term": "recurrent layers",
+      "label": "recurrent layers",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c9"
@@ -1501,9 +1413,9 @@
       ],
       "count": 1
     },
-    "english-to-german translation": {
-      "term": "english-to-german translation",
-      "label": "English-to-German translation",
+    "translation tasks": {
+      "term": "translation tasks",
+      "label": "translation tasks",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c9"
@@ -1513,9 +1425,9 @@
       ],
       "count": 1
     },
-    "english-to-french translation": {
-      "term": "english-to-french translation",
-      "label": "English-to-French translation",
+    "local attention mechanisms": {
+      "term": "local attention mechanisms",
+      "label": "local attention mechanisms",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c9"
@@ -1525,21 +1437,9 @@
       ],
       "count": 1
     },
-    "attention-based models": {
-      "term": "attention-based models",
-      "label": "attention-based models",
-      "category": "computing",
-      "chapters": [
-        "attention-is-all-you-need__c9"
-      ],
-      "docs": [
-        "attention-is-all-you-need"
-      ],
-      "count": 1
-    },
-    "local restricted attention": {
-      "term": "local restricted attention",
-      "label": "local restricted attention",
+    "images, audio and video": {
+      "term": "images, audio and video",
+      "label": "images, audio and video",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c9"
@@ -1561,9 +1461,9 @@
       ],
       "count": 1
     },
-    "encoder self-attention": {
-      "term": "encoder self-attention",
-      "label": "encoder self-attention",
+    "neural machine translation": {
+      "term": "neural machine translation",
+      "label": "neural machine translation",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c10"
@@ -1573,9 +1473,9 @@
       ],
       "count": 1
     },
-    "long-distance dependencies": {
-      "term": "long-distance dependencies",
-      "label": "long-distance dependencies",
+    "lstm": {
+      "term": "lstm",
+      "label": "LSTM",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c10"
@@ -1585,9 +1485,9 @@
       ],
       "count": 1
     },
-    "anaphora resolution": {
-      "term": "anaphora resolution",
-      "label": "anaphora resolution",
+    "adam": {
+      "term": "adam",
+      "label": "Adam",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c10"
@@ -1597,9 +1497,9 @@
       ],
       "count": 1
     },
-    "layer 5": {
-      "term": "layer 5",
-      "label": "layer 5",
+    "machine reading": {
+      "term": "machine reading",
+      "label": "machine reading",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c10"
@@ -1609,9 +1509,9 @@
       ],
       "count": 1
     },
-    "syntactic structure": {
-      "term": "syntactic structure",
-      "label": "syntactic structure",
+    "deep residual learning": {
+      "term": "deep residual learning",
+      "label": "Deep residual learning",
       "category": "computing",
       "chapters": [
         "attention-is-all-you-need__c10"
@@ -1699,7 +1599,7 @@
       "source": "attention-is-all-you-need__c1",
       "target": "self-attention",
       "type": "mentions",
-      "weight": 0.92
+      "weight": 0.95
     },
     {
       "source": "attention-is-all-you-need__c1",
@@ -1711,7 +1611,7 @@
       "source": "attention-is-all-you-need__c1",
       "target": "machine translation",
       "type": "mentions",
-      "weight": 0.76
+      "weight": 0.72
     },
     {
       "source": "attention-is-all-you-need__c1",
@@ -1721,27 +1621,27 @@
     },
     {
       "source": "attention-is-all-you-need__c1",
-      "target": "parallelization",
+      "target": "recurrent neural networks",
       "type": "mentions",
-      "weight": 0.62
+      "weight": 0.66
     },
     {
       "source": "attention-is-all-you-need__c1",
-      "target": "recurrent networks",
+      "target": "cnn",
       "type": "mentions",
       "weight": 0.6
     },
     {
       "source": "attention-is-all-you-need__c1",
-      "target": "convolutional networks",
+      "target": "parallelization",
       "type": "mentions",
       "weight": 0.55
     },
     {
       "source": "attention-is-all-you-need__c1",
-      "target": "long-range dependencies",
+      "target": "google brain",
       "type": "mentions",
-      "weight": 0.5
+      "weight": 0.42
     },
     {
       "source": "attention-is-all-you-need__c2",
@@ -1753,29 +1653,41 @@
       "source": "attention-is-all-you-need__c2",
       "target": "attention mechanism",
       "type": "mentions",
-      "weight": 0.94
-    },
-    {
-      "source": "attention-is-all-you-need__c2",
-      "target": "machine translation",
-      "type": "mentions",
-      "weight": 0.86
+      "weight": 0.96
     },
     {
       "source": "attention-is-all-you-need__c2",
       "target": "self-attention",
       "type": "mentions",
-      "weight": 0.82
+      "weight": 0.93
     },
     {
       "source": "attention-is-all-you-need__c2",
-      "target": "multi-head attention",
+      "target": "machine translation",
+      "type": "mentions",
+      "weight": 0.9
+    },
+    {
+      "source": "attention-is-all-you-need__c2",
+      "target": "encoder-decoder",
       "type": "mentions",
       "weight": 0.78
     },
     {
       "source": "attention-is-all-you-need__c2",
-      "target": "encoder-decoder",
+      "target": "multi-head attention",
+      "type": "mentions",
+      "weight": 0.76
+    },
+    {
+      "source": "attention-is-all-you-need__c2",
+      "target": "scaled dot-product attention",
+      "type": "mentions",
+      "weight": 0.73
+    },
+    {
+      "source": "attention-is-all-you-need__c2",
+      "target": "wmt 2014",
       "type": "mentions",
       "weight": 0.7
     },
@@ -1787,33 +1699,15 @@
     },
     {
       "source": "attention-is-all-you-need__c2",
-      "target": "wmt 2014",
-      "type": "mentions",
-      "weight": 0.64
-    },
-    {
-      "source": "attention-is-all-you-need__c2",
-      "target": "english-german translation",
-      "type": "mentions",
-      "weight": 0.6
-    },
-    {
-      "source": "attention-is-all-you-need__c2",
-      "target": "english-french translation",
-      "type": "mentions",
-      "weight": 0.58
-    },
-    {
-      "source": "attention-is-all-you-need__c2",
-      "target": "gpu",
-      "type": "mentions",
-      "weight": 0.5
-    },
-    {
-      "source": "attention-is-all-you-need__c2",
       "target": "english constituency parsing",
       "type": "mentions",
-      "weight": 0.46
+      "weight": 0.62
+    },
+    {
+      "source": "attention-is-all-you-need__c2",
+      "target": "parallelization",
+      "type": "mentions",
+      "weight": 0.55
     },
     {
       "source": "attention-is-all-you-need__c3",
@@ -1831,55 +1725,49 @@
       "source": "attention-is-all-you-need__c3",
       "target": "sequence modeling",
       "type": "mentions",
-      "weight": 0.8
+      "weight": 0.84
     },
     {
       "source": "attention-is-all-you-need__c3",
       "target": "machine translation",
       "type": "mentions",
-      "weight": 0.78
+      "weight": 0.8
     },
     {
       "source": "attention-is-all-you-need__c3",
       "target": "recurrent neural networks",
       "type": "mentions",
-      "weight": 0.72
-    },
-    {
-      "source": "attention-is-all-you-need__c3",
-      "target": "lstm",
-      "type": "mentions",
-      "weight": 0.7
-    },
-    {
-      "source": "attention-is-all-you-need__c3",
-      "target": "gru",
-      "type": "mentions",
-      "weight": 0.68
+      "weight": 0.78
     },
     {
       "source": "attention-is-all-you-need__c3",
       "target": "encoder-decoder architectures",
       "type": "mentions",
-      "weight": 0.6
+      "weight": 0.62
     },
     {
       "source": "attention-is-all-you-need__c3",
-      "target": "parallelization",
+      "target": "long short-term memory",
       "type": "mentions",
       "weight": 0.58
     },
     {
       "source": "attention-is-all-you-need__c3",
-      "target": "global dependencies",
+      "target": "parallelization",
       "type": "mentions",
       "weight": 0.5
     },
     {
       "source": "attention-is-all-you-need__c3",
-      "target": "gpu",
+      "target": "global dependencies",
       "type": "mentions",
-      "weight": 0.45
+      "weight": 0.48
+    },
+    {
+      "source": "attention-is-all-you-need__c3",
+      "target": "conditional computation",
+      "type": "mentions",
+      "weight": 0.36
     },
     {
       "source": "attention-is-all-you-need__c4",
@@ -1891,55 +1779,67 @@
       "source": "attention-is-all-you-need__c4",
       "target": "self-attention",
       "type": "mentions",
-      "weight": 0.97
+      "weight": 0.95
     },
     {
       "source": "attention-is-all-you-need__c4",
       "target": "multi-head attention",
       "type": "mentions",
-      "weight": 0.82
+      "weight": 0.9
     },
     {
       "source": "attention-is-all-you-need__c4",
       "target": "convolutional neural networks",
       "type": "mentions",
-      "weight": 0.74
+      "weight": 0.78
     },
     {
       "source": "attention-is-all-you-need__c4",
-      "target": "rnn",
+      "target": "recurrent neural networks",
       "type": "mentions",
-      "weight": 0.7
+      "weight": 0.72
     },
     {
       "source": "attention-is-all-you-need__c4",
       "target": "bytenet",
       "type": "mentions",
-      "weight": 0.66
+      "weight": 0.65
     },
     {
       "source": "attention-is-all-you-need__c4",
       "target": "convs2s",
       "type": "mentions",
-      "weight": 0.64
+      "weight": 0.63
     },
     {
       "source": "attention-is-all-you-need__c4",
       "target": "extended neural gpu",
       "type": "mentions",
-      "weight": 0.6
+      "weight": 0.58
     },
     {
       "source": "attention-is-all-you-need__c4",
       "target": "end-to-end memory networks",
       "type": "mentions",
-      "weight": 0.54
+      "weight": 0.57
     },
     {
       "source": "attention-is-all-you-need__c4",
       "target": "sequence-aligned recurrence",
       "type": "mentions",
-      "weight": 0.48
+      "weight": 0.5
+    },
+    {
+      "source": "attention-is-all-you-need__c4",
+      "target": "reading comprehension",
+      "type": "mentions",
+      "weight": 0.46
+    },
+    {
+      "source": "attention-is-all-you-need__c4",
+      "target": "abstractive summarization",
+      "type": "mentions",
+      "weight": 0.44
     },
     {
       "source": "attention-is-all-you-need__c5",
@@ -1949,39 +1849,39 @@
     },
     {
       "source": "attention-is-all-you-need__c5",
-      "target": "멀티헤드 어텐션",
-      "type": "mentions",
-      "weight": 0.95
-    },
-    {
-      "source": "attention-is-all-you-need__c5",
-      "target": "positional encoding",
+      "target": "encoder-decoder",
       "type": "mentions",
       "weight": 0.93
     },
     {
       "source": "attention-is-all-you-need__c5",
-      "target": "인코더-디코더 구조",
+      "target": "multi-head attention",
       "type": "mentions",
-      "weight": 0.9
-    },
-    {
-      "source": "attention-is-all-you-need__c5",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "mentions",
-      "weight": 0.88
+      "weight": 0.92
     },
     {
       "source": "attention-is-all-you-need__c5",
       "target": "self-attention",
       "type": "mentions",
-      "weight": 0.82
+      "weight": 0.9
     },
     {
       "source": "attention-is-all-you-need__c5",
-      "target": "position-wise feed-forward network",
+      "target": "scaled dot-product attention",
       "type": "mentions",
-      "weight": 0.76
+      "weight": 0.87
+    },
+    {
+      "source": "attention-is-all-you-need__c5",
+      "target": "positional encoding",
+      "type": "mentions",
+      "weight": 0.84
+    },
+    {
+      "source": "attention-is-all-you-need__c5",
+      "target": "layer normalization",
+      "type": "mentions",
+      "weight": 0.72
     },
     {
       "source": "attention-is-all-you-need__c5",
@@ -1991,27 +1891,27 @@
     },
     {
       "source": "attention-is-all-you-need__c5",
-      "target": "layer normalization",
+      "target": "position-wise feed-forward network",
       "type": "mentions",
-      "weight": 0.66
+      "weight": 0.68
     },
     {
       "source": "attention-is-all-you-need__c5",
-      "target": "마스킹",
+      "target": "auto-regressive",
       "type": "mentions",
-      "weight": 0.6
-    },
-    {
-      "source": "attention-is-all-you-need__c5",
-      "target": "embedding",
-      "type": "mentions",
-      "weight": 0.58
+      "weight": 0.63
     },
     {
       "source": "attention-is-all-you-need__c5",
       "target": "softmax",
       "type": "mentions",
-      "weight": 0.5
+      "weight": 0.52
+    },
+    {
+      "source": "attention-is-all-you-need__c5",
+      "target": "relu",
+      "type": "mentions",
+      "weight": 0.45
     },
     {
       "source": "attention-is-all-you-need__c6",
@@ -2023,7 +1923,7 @@
       "source": "attention-is-all-you-need__c6",
       "target": "recurrent layer",
       "type": "mentions",
-      "weight": 0.93
+      "weight": 0.92
     },
     {
       "source": "attention-is-all-you-need__c6",
@@ -2035,7 +1935,7 @@
       "source": "attention-is-all-you-need__c6",
       "target": "long-range dependencies",
       "type": "mentions",
-      "weight": 0.86
+      "weight": 0.84
     },
     {
       "source": "attention-is-all-you-need__c6",
@@ -2047,43 +1947,43 @@
       "source": "attention-is-all-you-need__c6",
       "target": "parallelization",
       "type": "mentions",
-      "weight": 0.76
+      "weight": 0.72
     },
     {
       "source": "attention-is-all-you-need__c6",
       "target": "path length",
       "type": "mentions",
-      "weight": 0.72
+      "weight": 0.7
     },
     {
       "source": "attention-is-all-you-need__c6",
       "target": "sequence transduction",
       "type": "mentions",
-      "weight": 0.63
+      "weight": 0.62
     },
     {
       "source": "attention-is-all-you-need__c6",
-      "target": "dilated convolutions",
-      "type": "mentions",
-      "weight": 0.57
-    },
-    {
-      "source": "attention-is-all-you-need__c6",
-      "target": "separable convolutions",
+      "target": "word-piece",
       "type": "mentions",
       "weight": 0.54
     },
     {
       "source": "attention-is-all-you-need__c6",
-      "target": "attention heads",
+      "target": "byte-pair",
+      "type": "mentions",
+      "weight": 0.54
+    },
+    {
+      "source": "attention-is-all-you-need__c6",
+      "target": "separable convolutions",
       "type": "mentions",
       "weight": 0.5
     },
     {
       "source": "attention-is-all-you-need__c6",
-      "target": "byte-pair",
+      "target": "attention heads",
       "type": "mentions",
-      "weight": 0.4
+      "weight": 0.48
     },
     {
       "source": "attention-is-all-you-need__c7",
@@ -2099,21 +1999,21 @@
     },
     {
       "source": "attention-is-all-you-need__c7",
-      "target": "label smoothing",
+      "target": "learning rate",
       "type": "mentions",
-      "weight": 0.82
+      "weight": 0.85
     },
     {
       "source": "attention-is-all-you-need__c7",
-      "target": "dropout",
+      "target": "label smoothing",
       "type": "mentions",
       "weight": 0.8
     },
     {
       "source": "attention-is-all-you-need__c7",
-      "target": "learning rate schedule",
+      "target": "residual dropout",
       "type": "mentions",
-      "weight": 0.76
+      "weight": 0.75
     },
     {
       "source": "attention-is-all-you-need__c7",
@@ -2125,37 +2025,37 @@
       "source": "attention-is-all-you-need__c7",
       "target": "byte-pair encoding",
       "type": "mentions",
-      "weight": 0.68
-    },
-    {
-      "source": "attention-is-all-you-need__c7",
-      "target": "word-piece vocabulary",
-      "type": "mentions",
-      "weight": 0.6
-    },
-    {
-      "source": "attention-is-all-you-need__c7",
-      "target": "nvidia p100 gpus",
-      "type": "mentions",
-      "weight": 0.58
-    },
-    {
-      "source": "attention-is-all-you-need__c7",
-      "target": "bleu score",
-      "type": "mentions",
-      "weight": 0.55
-    },
-    {
-      "source": "attention-is-all-you-need__c7",
-      "target": "warmup steps",
-      "type": "mentions",
-      "weight": 0.5
+      "weight": 0.7
     },
     {
       "source": "attention-is-all-you-need__c7",
       "target": "batching",
       "type": "mentions",
-      "weight": 0.45
+      "weight": 0.62
+    },
+    {
+      "source": "attention-is-all-you-need__c7",
+      "target": "warmup_steps",
+      "type": "mentions",
+      "weight": 0.6
+    },
+    {
+      "source": "attention-is-all-you-need__c7",
+      "target": "parallelization",
+      "type": "mentions",
+      "weight": 0.58
+    },
+    {
+      "source": "attention-is-all-you-need__c7",
+      "target": "bleu",
+      "type": "mentions",
+      "weight": 0.55
+    },
+    {
+      "source": "attention-is-all-you-need__c7",
+      "target": "regularization",
+      "type": "mentions",
+      "weight": 0.5
     },
     {
       "source": "attention-is-all-you-need__c8",
@@ -2165,15 +2065,15 @@
     },
     {
       "source": "attention-is-all-you-need__c8",
-      "target": "기계번역",
+      "target": "machine translation",
       "type": "mentions",
-      "weight": 0.96
+      "weight": 0.97
     },
     {
       "source": "attention-is-all-you-need__c8",
       "target": "bleu",
       "type": "mentions",
-      "weight": 0.9
+      "weight": 0.92
     },
     {
       "source": "attention-is-all-you-need__c8",
@@ -2183,51 +2083,51 @@
     },
     {
       "source": "attention-is-all-you-need__c8",
-      "target": "어텐션 헤드",
+      "target": "english-to-german",
       "type": "mentions",
-      "weight": 0.8
+      "weight": 0.84
+    },
+    {
+      "source": "attention-is-all-you-need__c8",
+      "target": "english-to-french",
+      "type": "mentions",
+      "weight": 0.81
     },
     {
       "source": "attention-is-all-you-need__c8",
       "target": "beam search",
       "type": "mentions",
-      "weight": 0.74
+      "weight": 0.76
     },
     {
       "source": "attention-is-all-you-need__c8",
-      "target": "포지셔널 인코딩",
+      "target": "positional encoding",
+      "type": "mentions",
+      "weight": 0.73
+    },
+    {
+      "source": "attention-is-all-you-need__c8",
+      "target": "english constituency parsing",
       "type": "mentions",
       "weight": 0.7
     },
     {
       "source": "attention-is-all-you-need__c8",
-      "target": "드롭아웃",
-      "type": "mentions",
-      "weight": 0.66
-    },
-    {
-      "source": "attention-is-all-you-need__c8",
-      "target": "영어 구문 분석",
+      "target": "penn treebank",
       "type": "mentions",
       "weight": 0.62
     },
     {
       "source": "attention-is-all-you-need__c8",
-      "target": "penn treebank",
+      "target": "dropout",
       "type": "mentions",
-      "weight": 0.56
+      "weight": 0.6
     },
     {
       "source": "attention-is-all-you-need__c8",
-      "target": "p100 gpu",
+      "target": "rnn sequence-to-sequence models",
       "type": "mentions",
-      "weight": 0.5
-    },
-    {
-      "source": "attention-is-all-you-need__c8",
-      "target": "perplexity",
-      "type": "mentions",
-      "weight": 0.44
+      "weight": 0.55
     },
     {
       "source": "attention-is-all-you-need__c9",
@@ -2237,15 +2137,15 @@
     },
     {
       "source": "attention-is-all-you-need__c9",
-      "target": "multi-headed self-attention",
+      "target": "multi-head attention",
       "type": "mentions",
-      "weight": 0.95
+      "weight": 0.9
     },
     {
       "source": "attention-is-all-you-need__c9",
       "target": "sequence transduction",
       "type": "mentions",
-      "weight": 0.84
+      "weight": 0.8
     },
     {
       "source": "attention-is-all-you-need__c9",
@@ -2255,33 +2155,33 @@
     },
     {
       "source": "attention-is-all-you-need__c9",
-      "target": "wmt 2014",
+      "target": "recurrent layers",
       "type": "mentions",
       "weight": 0.7
     },
     {
       "source": "attention-is-all-you-need__c9",
-      "target": "english-to-german translation",
+      "target": "translation tasks",
       "type": "mentions",
-      "weight": 0.66
+      "weight": 0.65
     },
     {
       "source": "attention-is-all-you-need__c9",
-      "target": "english-to-french translation",
-      "type": "mentions",
-      "weight": 0.66
-    },
-    {
-      "source": "attention-is-all-you-need__c9",
-      "target": "attention-based models",
+      "target": "wmt 2014",
       "type": "mentions",
       "weight": 0.6
     },
     {
       "source": "attention-is-all-you-need__c9",
-      "target": "local restricted attention",
+      "target": "local attention mechanisms",
       "type": "mentions",
-      "weight": 0.52
+      "weight": 0.55
+    },
+    {
+      "source": "attention-is-all-you-need__c9",
+      "target": "images, audio and video",
+      "type": "mentions",
+      "weight": 0.5
     },
     {
       "source": "attention-is-all-you-need__c9",
@@ -2291,63 +2191,75 @@
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "self-attention",
+      "target": "attention",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "transformer",
+      "target": "sequence transduction",
       "type": "mentions",
-      "weight": 0.96
+      "weight": 0.95
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "encoder self-attention",
+      "target": "neural machine translation",
+      "type": "mentions",
+      "weight": 0.92
+    },
+    {
+      "source": "attention-is-all-you-need__c10",
+      "target": "recurrent neural networks",
       "type": "mentions",
       "weight": 0.9
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "attention heads",
+      "target": "self-attention",
       "type": "mentions",
-      "weight": 0.84
+      "weight": 0.88
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "long-distance dependencies",
+      "target": "layer normalization",
+      "type": "mentions",
+      "weight": 0.82
+    },
+    {
+      "source": "attention-is-all-you-need__c10",
+      "target": "lstm",
       "type": "mentions",
       "weight": 0.8
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "anaphora resolution",
+      "target": "adam",
       "type": "mentions",
-      "weight": 0.74
+      "weight": 0.76
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "machine translation",
+      "target": "dropout",
       "type": "mentions",
-      "weight": 0.7
+      "weight": 0.72
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "sequence modeling",
+      "target": "machine reading",
       "type": "mentions",
-      "weight": 0.64
+      "weight": 0.68
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "layer 5",
+      "target": "penn treebank",
       "type": "mentions",
-      "weight": 0.56
+      "weight": 0.62
     },
     {
       "source": "attention-is-all-you-need__c10",
-      "target": "syntactic structure",
+      "target": "deep residual learning",
       "type": "mentions",
-      "weight": 0.52
+      "weight": 0.6
     },
     {
       "source": "attention",
@@ -2359,13 +2271,13 @@
       "source": "attention",
       "target": "self-attention",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "attention",
       "target": "sequence transduction",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "attention",
@@ -2381,25 +2293,25 @@
     },
     {
       "source": "attention",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "attention",
+      "target": "cnn",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "attention",
       "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "attention",
-      "target": "recurrent networks",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention",
-      "target": "convolutional networks",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention",
-      "target": "long-range dependencies",
+      "target": "google brain",
       "type": "cooccurs",
       "weight": 1
     },
@@ -2407,7 +2319,7 @@
       "source": "self-attention",
       "target": "transformer",
       "type": "cooccurs",
-      "weight": 5
+      "weight": 4
     },
     {
       "source": "sequence transduction",
@@ -2425,28 +2337,28 @@
       "source": "encoder-decoder",
       "target": "transformer",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 3
+    },
+    {
+      "source": "recurrent neural networks",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 3
+    },
+    {
+      "source": "cnn",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
     },
     {
       "source": "parallelization",
       "target": "transformer",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 4
     },
     {
-      "source": "recurrent networks",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "convolutional networks",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "long-range dependencies",
+      "source": "google brain",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -2455,43 +2367,43 @@
       "source": "self-attention",
       "target": "sequence transduction",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 3
     },
     {
       "source": "machine translation",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "encoder-decoder",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 3
     },
     {
-      "source": "encoder-decoder",
+      "source": "recurrent neural networks",
       "target": "self-attention",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 3
+    },
+    {
+      "source": "cnn",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
     },
     {
       "source": "parallelization",
       "target": "self-attention",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 3
     },
     {
-      "source": "recurrent networks",
+      "source": "google brain",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
-    },
-    {
-      "source": "convolutional networks",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "long-range dependencies",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 2
     },
     {
       "source": "machine translation",
@@ -2501,6 +2413,18 @@
     },
     {
       "source": "encoder-decoder",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "recurrent neural networks",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "cnn",
       "target": "sequence transduction",
       "type": "cooccurs",
       "weight": 1
@@ -2512,22 +2436,10 @@
       "weight": 2
     },
     {
-      "source": "recurrent networks",
+      "source": "google brain",
       "target": "sequence transduction",
       "type": "cooccurs",
       "weight": 1
-    },
-    {
-      "source": "convolutional networks",
-      "target": "sequence transduction",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "long-range dependencies",
-      "target": "sequence transduction",
-      "type": "cooccurs",
-      "weight": 2
     },
     {
       "source": "encoder-decoder",
@@ -2537,85 +2449,85 @@
     },
     {
       "source": "machine translation",
-      "target": "parallelization",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 2
     },
     {
+      "source": "cnn",
+      "target": "machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "machine translation",
-      "target": "recurrent networks",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "convolutional networks",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "long-range dependencies",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "encoder-decoder",
       "target": "parallelization",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 3
     },
     {
-      "source": "encoder-decoder",
-      "target": "recurrent networks",
+      "source": "google brain",
+      "target": "machine translation",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "convolutional networks",
+      "source": "encoder-decoder",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "cnn",
       "target": "encoder-decoder",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "encoder-decoder",
-      "target": "long-range dependencies",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "parallelization",
-      "target": "recurrent networks",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "convolutional networks",
-      "target": "parallelization",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "long-range dependencies",
       "target": "parallelization",
       "type": "cooccurs",
       "weight": 2
     },
     {
-      "source": "convolutional networks",
-      "target": "recurrent networks",
+      "source": "encoder-decoder",
+      "target": "google brain",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "long-range dependencies",
-      "target": "recurrent networks",
+      "source": "cnn",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "convolutional networks",
-      "target": "long-range dependencies",
+      "source": "parallelization",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "google brain",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "cnn",
+      "target": "parallelization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "cnn",
+      "target": "google brain",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "google brain",
+      "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
     },
@@ -2629,10 +2541,10 @@
       "source": "multi-head attention",
       "target": "transformer",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 4
     },
     {
-      "source": "bleu",
+      "source": "scaled dot-product attention",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 2
@@ -2644,32 +2556,14 @@
       "weight": 4
     },
     {
-      "source": "english-german translation",
+      "source": "bleu",
       "target": "transformer",
       "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-french translation",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gpu",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 2
+      "weight": 3
     },
     {
       "source": "english constituency parsing",
       "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention mechanism",
-      "target": "machine translation",
       "type": "cooccurs",
       "weight": 2
     },
@@ -2681,13 +2575,31 @@
     },
     {
       "source": "attention mechanism",
+      "target": "machine translation",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "attention mechanism",
+      "target": "encoder-decoder",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "attention mechanism",
       "target": "multi-head attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "attention mechanism",
-      "target": "encoder-decoder",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "attention mechanism",
+      "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
@@ -2699,87 +2611,27 @@
     },
     {
       "source": "attention mechanism",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention mechanism",
-      "target": "english-german translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention mechanism",
-      "target": "english-french translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention mechanism",
-      "target": "gpu",
-      "type": "cooccurs",
-      "weight": 2
-    },
-    {
-      "source": "attention mechanism",
       "target": "english constituency parsing",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "machine translation",
-      "target": "multi-head attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "machine translation",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-german translation",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-french translation",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gpu",
-      "target": "machine translation",
+      "source": "attention mechanism",
+      "target": "parallelization",
       "type": "cooccurs",
       "weight": 2
-    },
-    {
-      "source": "english constituency parsing",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
     },
     {
       "source": "multi-head attention",
       "target": "self-attention",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 3
     },
     {
-      "source": "bleu",
+      "source": "scaled dot-product attention",
       "target": "self-attention",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "self-attention",
@@ -2788,19 +2640,7 @@
       "weight": 1
     },
     {
-      "source": "english-german translation",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-french translation",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gpu",
+      "source": "bleu",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
@@ -2810,46 +2650,52 @@
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
+    },
+    {
+      "source": "machine translation",
+      "target": "multi-head attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "machine translation",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "machine translation",
+      "target": "wmt 2014",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "bleu",
+      "target": "machine translation",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "english constituency parsing",
+      "target": "machine translation",
+      "type": "cooccurs",
+      "weight": 2
     },
     {
       "source": "encoder-decoder",
       "target": "multi-head attention",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
-      "source": "bleu",
-      "target": "multi-head attention",
+      "source": "encoder-decoder",
+      "target": "scaled dot-product attention",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
-      "source": "multi-head attention",
+      "source": "encoder-decoder",
       "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-german translation",
-      "target": "multi-head attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-french translation",
-      "target": "multi-head attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gpu",
-      "target": "multi-head attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english constituency parsing",
-      "target": "multi-head attention",
       "type": "cooccurs",
       "weight": 1
     },
@@ -2861,144 +2707,102 @@
     },
     {
       "source": "encoder-decoder",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "encoder-decoder",
-      "target": "english-german translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "encoder-decoder",
-      "target": "english-french translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "encoder-decoder",
-      "target": "gpu",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "encoder-decoder",
       "target": "english constituency parsing",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "bleu",
+      "source": "multi-head attention",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "multi-head attention",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 2
     },
     {
       "source": "bleu",
-      "target": "english-german translation",
+      "target": "multi-head attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english constituency parsing",
+      "target": "multi-head attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "multi-head attention",
+      "target": "parallelization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "scaled dot-product attention",
+      "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "bleu",
-      "target": "english-french translation",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english constituency parsing",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "parallelization",
+      "target": "scaled dot-product attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "bleu",
-      "target": "gpu",
+      "target": "wmt 2014",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 3
+    },
+    {
+      "source": "english constituency parsing",
+      "target": "wmt 2014",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "parallelization",
+      "target": "wmt 2014",
+      "type": "cooccurs",
+      "weight": 2
     },
     {
       "source": "bleu",
       "target": "english constituency parsing",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
-      "source": "english-german translation",
-      "target": "wmt 2014",
+      "source": "bleu",
+      "target": "parallelization",
       "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-french translation",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gpu",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "english constituency parsing",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-french translation",
-      "target": "english-german translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-german translation",
-      "target": "gpu",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english constituency parsing",
-      "target": "english-german translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-french translation",
-      "target": "gpu",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english constituency parsing",
-      "target": "english-french translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english constituency parsing",
-      "target": "gpu",
+      "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "sequence modeling",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 2
-    },
-    {
-      "source": "recurrent neural networks",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "lstm",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gru",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -3010,7 +2814,19 @@
       "weight": 2
     },
     {
+      "source": "long short-term memory",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "global dependencies",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "conditional computation",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -3024,18 +2840,6 @@
     {
       "source": "attention mechanism",
       "target": "recurrent neural networks",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention mechanism",
-      "target": "lstm",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention mechanism",
-      "target": "gru",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3047,7 +2851,7 @@
     },
     {
       "source": "attention mechanism",
-      "target": "parallelization",
+      "target": "long short-term memory",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3058,10 +2862,16 @@
       "weight": 1
     },
     {
+      "source": "attention mechanism",
+      "target": "conditional computation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "machine translation",
       "target": "sequence modeling",
       "type": "cooccurs",
-      "weight": 2
+      "weight": 1
     },
     {
       "source": "recurrent neural networks",
@@ -3070,19 +2880,13 @@
       "weight": 1
     },
     {
-      "source": "lstm",
-      "target": "sequence modeling",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gru",
-      "target": "sequence modeling",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "encoder-decoder architectures",
+      "target": "sequence modeling",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "long short-term memory",
       "target": "sequence modeling",
       "type": "cooccurs",
       "weight": 1
@@ -3100,31 +2904,19 @@
       "weight": 1
     },
     {
-      "source": "gpu",
+      "source": "conditional computation",
       "target": "sequence modeling",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "machine translation",
-      "target": "recurrent neural networks",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "lstm",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gru",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "encoder-decoder architectures",
+      "target": "machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "long short-term memory",
       "target": "machine translation",
       "type": "cooccurs",
       "weight": 1
@@ -3136,14 +2928,8 @@
       "weight": 1
     },
     {
-      "source": "lstm",
-      "target": "recurrent neural networks",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gru",
-      "target": "recurrent neural networks",
+      "source": "conditional computation",
+      "target": "machine translation",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3154,7 +2940,7 @@
       "weight": 1
     },
     {
-      "source": "parallelization",
+      "source": "long short-term memory",
       "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
@@ -3166,62 +2952,14 @@
       "weight": 1
     },
     {
-      "source": "gpu",
+      "source": "conditional computation",
       "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "gru",
-      "target": "lstm",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "encoder-decoder architectures",
-      "target": "lstm",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "lstm",
-      "target": "parallelization",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "global dependencies",
-      "target": "lstm",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gpu",
-      "target": "lstm",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "encoder-decoder architectures",
-      "target": "gru",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gru",
-      "target": "parallelization",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "global dependencies",
-      "target": "gru",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "gpu",
-      "target": "gru",
+      "target": "long short-term memory",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3238,8 +2976,26 @@
       "weight": 1
     },
     {
-      "source": "encoder-decoder architectures",
-      "target": "gpu",
+      "source": "conditional computation",
+      "target": "encoder-decoder architectures",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "long short-term memory",
+      "target": "parallelization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "global dependencies",
+      "target": "long short-term memory",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "conditional computation",
+      "target": "long short-term memory",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3250,25 +3006,19 @@
       "weight": 1
     },
     {
-      "source": "gpu",
+      "source": "conditional computation",
       "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "global dependencies",
-      "target": "gpu",
+      "source": "conditional computation",
+      "target": "global dependencies",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "convolutional neural networks",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "rnn",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -3304,13 +3054,19 @@
       "weight": 1
     },
     {
-      "source": "convolutional neural networks",
-      "target": "self-attention",
+      "source": "reading comprehension",
+      "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "rnn",
+      "source": "abstractive summarization",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "convolutional neural networks",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
@@ -3346,6 +3102,18 @@
       "weight": 1
     },
     {
+      "source": "reading comprehension",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "convolutional neural networks",
       "target": "multi-head attention",
       "type": "cooccurs",
@@ -3353,7 +3121,7 @@
     },
     {
       "source": "multi-head attention",
-      "target": "rnn",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3388,8 +3156,20 @@
       "weight": 1
     },
     {
+      "source": "multi-head attention",
+      "target": "reading comprehension",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "multi-head attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "convolutional neural networks",
-      "target": "rnn",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3424,32 +3204,56 @@
       "weight": 1
     },
     {
+      "source": "convolutional neural networks",
+      "target": "reading comprehension",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "convolutional neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "bytenet",
-      "target": "rnn",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "convs2s",
-      "target": "rnn",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "extended neural gpu",
-      "target": "rnn",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "end-to-end memory networks",
-      "target": "rnn",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "rnn",
+      "source": "recurrent neural networks",
       "target": "sequence-aligned recurrence",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "reading comprehension",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "recurrent neural networks",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3478,6 +3282,18 @@
       "weight": 1
     },
     {
+      "source": "bytenet",
+      "target": "reading comprehension",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "bytenet",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "convs2s",
       "target": "extended neural gpu",
       "type": "cooccurs",
@@ -3496,6 +3312,18 @@
       "weight": 1
     },
     {
+      "source": "convs2s",
+      "target": "reading comprehension",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "convs2s",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "end-to-end memory networks",
       "target": "extended neural gpu",
       "type": "cooccurs",
@@ -3508,14 +3336,50 @@
       "weight": 1
     },
     {
+      "source": "extended neural gpu",
+      "target": "reading comprehension",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "extended neural gpu",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "end-to-end memory networks",
       "target": "sequence-aligned recurrence",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "transformer",
-      "target": "멀티헤드 어텐션",
+      "source": "end-to-end memory networks",
+      "target": "reading comprehension",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "end-to-end memory networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "reading comprehension",
+      "target": "sequence-aligned recurrence",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "sequence-aligned recurrence",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "abstractive summarization",
+      "target": "reading comprehension",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3523,22 +3387,10 @@
       "source": "positional encoding",
       "target": "transformer",
       "type": "cooccurs",
-      "weight": 1
+      "weight": 2
     },
     {
-      "source": "transformer",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "transformer",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "position-wise feed-forward network",
+      "source": "layer normalization",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -3550,98 +3402,110 @@
       "weight": 1
     },
     {
-      "source": "layer normalization",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "transformer",
-      "target": "마스킹",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "softmax",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "positional encoding",
-      "target": "멀티헤드 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "멀티헤드 어텐션",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "멀티헤드 어텐션",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "self-attention",
-      "target": "멀티헤드 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "position-wise feed-forward network",
-      "target": "멀티헤드 어텐션",
+      "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "residual connection",
-      "target": "멀티헤드 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer normalization",
-      "target": "멀티헤드 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "마스킹",
-      "target": "멀티헤드 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
-      "target": "멀티헤드 어텐션",
+      "source": "auto-regressive",
+      "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "softmax",
-      "target": "멀티헤드 어텐션",
+      "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "positional encoding",
-      "target": "인코더-디코더 구조",
+      "source": "relu",
+      "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "positional encoding",
-      "target": "스케일드 닷-프로덕트 어텐션",
+      "source": "encoder-decoder",
+      "target": "positional encoding",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "encoder-decoder",
+      "target": "layer normalization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "encoder-decoder",
+      "target": "residual connection",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "encoder-decoder",
+      "target": "position-wise feed-forward network",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "auto-regressive",
+      "target": "encoder-decoder",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "encoder-decoder",
+      "target": "softmax",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "encoder-decoder",
+      "target": "relu",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "multi-head attention",
+      "target": "positional encoding",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "layer normalization",
+      "target": "multi-head attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "multi-head attention",
+      "target": "residual connection",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "multi-head attention",
+      "target": "position-wise feed-forward network",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "auto-regressive",
+      "target": "multi-head attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "multi-head attention",
+      "target": "softmax",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "multi-head attention",
+      "target": "relu",
       "type": "cooccurs",
       "weight": 1
     },
@@ -3652,7 +3516,85 @@
       "weight": 1
     },
     {
+      "source": "layer normalization",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
+      "source": "residual connection",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "position-wise feed-forward network",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "auto-regressive",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "self-attention",
+      "target": "softmax",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "relu",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "positional encoding",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "layer normalization",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "residual connection",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "position-wise feed-forward network",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "auto-regressive",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "scaled dot-product attention",
+      "target": "softmax",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "relu",
+      "target": "scaled dot-product attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "layer normalization",
       "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
@@ -3664,19 +3606,13 @@
       "weight": 1
     },
     {
-      "source": "layer normalization",
+      "source": "position-wise feed-forward network",
       "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "positional encoding",
-      "target": "마스킹",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
+      "source": "auto-regressive",
       "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
@@ -3688,133 +3624,13 @@
       "weight": 1
     },
     {
-      "source": "스케일드 닷-프로덕트 어텐션",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "self-attention",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "position-wise feed-forward network",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "residual connection",
-      "target": "인코더-디코더 구조",
+      "source": "positional encoding",
+      "target": "relu",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "layer normalization",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "마스킹",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "softmax",
-      "target": "인코더-디코더 구조",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "self-attention",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "position-wise feed-forward network",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "residual connection",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer normalization",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "마스킹",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "softmax",
-      "target": "스케일드 닷-프로덕트 어텐션",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "position-wise feed-forward network",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "residual connection",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer normalization",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "self-attention",
-      "target": "마스킹",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
-      "target": "self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "self-attention",
-      "target": "softmax",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "position-wise feed-forward network",
       "target": "residual connection",
       "type": "cooccurs",
       "weight": 1
@@ -3826,55 +3642,7 @@
       "weight": 1
     },
     {
-      "source": "position-wise feed-forward network",
-      "target": "마스킹",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
-      "target": "position-wise feed-forward network",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "position-wise feed-forward network",
-      "target": "softmax",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer normalization",
-      "target": "residual connection",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "residual connection",
-      "target": "마스킹",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
-      "target": "residual connection",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "residual connection",
-      "target": "softmax",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer normalization",
-      "target": "마스킹",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "embedding",
+      "source": "auto-regressive",
       "target": "layer normalization",
       "type": "cooccurs",
       "weight": 1
@@ -3886,19 +3654,67 @@
       "weight": 1
     },
     {
-      "source": "embedding",
-      "target": "마스킹",
+      "source": "layer normalization",
+      "target": "relu",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "softmax",
-      "target": "마스킹",
+      "source": "position-wise feed-forward network",
+      "target": "residual connection",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "embedding",
+      "source": "auto-regressive",
+      "target": "residual connection",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "residual connection",
+      "target": "softmax",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "relu",
+      "target": "residual connection",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "auto-regressive",
+      "target": "position-wise feed-forward network",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "position-wise feed-forward network",
+      "target": "softmax",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "position-wise feed-forward network",
+      "target": "relu",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "auto-regressive",
+      "target": "softmax",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "auto-regressive",
+      "target": "relu",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "relu",
       "target": "softmax",
       "type": "cooccurs",
       "weight": 1
@@ -3916,6 +3732,12 @@
       "weight": 1
     },
     {
+      "source": "long-range dependencies",
+      "target": "self-attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "computational complexity",
       "target": "self-attention",
       "type": "cooccurs",
@@ -3928,7 +3750,13 @@
       "weight": 1
     },
     {
-      "source": "dilated convolutions",
+      "source": "self-attention",
+      "target": "word-piece",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
@@ -3943,12 +3771,6 @@
       "source": "attention heads",
       "target": "self-attention",
       "type": "cooccurs",
-      "weight": 2
-    },
-    {
-      "source": "byte-pair",
-      "target": "self-attention",
-      "type": "cooccurs",
       "weight": 1
     },
     {
@@ -3988,7 +3810,13 @@
       "weight": 1
     },
     {
-      "source": "dilated convolutions",
+      "source": "recurrent layer",
+      "target": "word-piece",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair",
       "target": "recurrent layer",
       "type": "cooccurs",
       "weight": 1
@@ -4006,12 +3834,6 @@
       "weight": 1
     },
     {
-      "source": "byte-pair",
-      "target": "recurrent layer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "convolutional layer",
       "target": "long-range dependencies",
       "type": "cooccurs",
@@ -4043,7 +3865,13 @@
     },
     {
       "source": "convolutional layer",
-      "target": "dilated convolutions",
+      "target": "word-piece",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair",
+      "target": "convolutional layer",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4060,14 +3888,14 @@
       "weight": 1
     },
     {
-      "source": "byte-pair",
-      "target": "convolutional layer",
+      "source": "computational complexity",
+      "target": "long-range dependencies",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "computational complexity",
-      "target": "long-range dependencies",
+      "source": "long-range dependencies",
+      "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4078,7 +3906,19 @@
       "weight": 1
     },
     {
-      "source": "dilated convolutions",
+      "source": "long-range dependencies",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "long-range dependencies",
+      "target": "word-piece",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair",
       "target": "long-range dependencies",
       "type": "cooccurs",
       "weight": 1
@@ -4091,12 +3931,6 @@
     },
     {
       "source": "attention heads",
-      "target": "long-range dependencies",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "byte-pair",
       "target": "long-range dependencies",
       "type": "cooccurs",
       "weight": 1
@@ -4121,7 +3955,13 @@
     },
     {
       "source": "computational complexity",
-      "target": "dilated convolutions",
+      "target": "word-piece",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair",
+      "target": "computational complexity",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4138,19 +3978,19 @@
       "weight": 1
     },
     {
-      "source": "byte-pair",
-      "target": "computational complexity",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "parallelization",
       "target": "path length",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "dilated convolutions",
+      "source": "parallelization",
+      "target": "word-piece",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair",
       "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
@@ -4163,12 +4003,6 @@
     },
     {
       "source": "attention heads",
-      "target": "parallelization",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "byte-pair",
       "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
@@ -4180,7 +4014,13 @@
       "weight": 1
     },
     {
-      "source": "dilated convolutions",
+      "source": "path length",
+      "target": "word-piece",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair",
       "target": "path length",
       "type": "cooccurs",
       "weight": 1
@@ -4198,13 +4038,13 @@
       "weight": 1
     },
     {
-      "source": "byte-pair",
-      "target": "path length",
+      "source": "sequence transduction",
+      "target": "word-piece",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "dilated convolutions",
+      "source": "byte-pair",
       "target": "sequence transduction",
       "type": "cooccurs",
       "weight": 1
@@ -4223,31 +4063,19 @@
     },
     {
       "source": "byte-pair",
-      "target": "sequence transduction",
+      "target": "word-piece",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "dilated convolutions",
-      "target": "separable convolutions",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention heads",
-      "target": "dilated convolutions",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "byte-pair",
-      "target": "dilated convolutions",
+      "source": "separable convolutions",
+      "target": "word-piece",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "attention heads",
-      "target": "separable convolutions",
+      "target": "word-piece",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4264,7 +4092,19 @@
       "weight": 1
     },
     {
+      "source": "attention heads",
+      "target": "separable convolutions",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "adam optimizer",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "learning rate",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -4276,13 +4116,7 @@
       "weight": 1
     },
     {
-      "source": "dropout",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "learning rate schedule",
+      "source": "residual dropout",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -4294,32 +4128,26 @@
       "weight": 1
     },
     {
-      "source": "transformer",
-      "target": "word-piece vocabulary",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "nvidia p100 gpus",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "transformer",
-      "target": "warmup steps",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "batching",
       "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "transformer",
+      "target": "warmup_steps",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "regularization",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "adam optimizer",
+      "target": "learning rate",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4331,13 +4159,7 @@
     },
     {
       "source": "adam optimizer",
-      "target": "dropout",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "adam optimizer",
-      "target": "learning rate schedule",
+      "target": "residual dropout",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4350,30 +4172,6 @@
     {
       "source": "adam optimizer",
       "target": "byte-pair encoding",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "adam optimizer",
-      "target": "word-piece vocabulary",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "adam optimizer",
-      "target": "nvidia p100 gpus",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "adam optimizer",
-      "target": "bleu score",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "adam optimizer",
-      "target": "warmup steps",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4384,14 +4182,86 @@
       "weight": 1
     },
     {
-      "source": "dropout",
-      "target": "label smoothing",
+      "source": "adam optimizer",
+      "target": "warmup_steps",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "adam optimizer",
+      "target": "parallelization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "adam optimizer",
+      "target": "bleu",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "adam optimizer",
+      "target": "regularization",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "label smoothing",
-      "target": "learning rate schedule",
+      "target": "learning rate",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "learning rate",
+      "target": "residual dropout",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "learning rate",
+      "target": "wmt 2014",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "byte-pair encoding",
+      "target": "learning rate",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "batching",
+      "target": "learning rate",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "learning rate",
+      "target": "warmup_steps",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "learning rate",
+      "target": "parallelization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "bleu",
+      "target": "learning rate",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "learning rate",
+      "target": "regularization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "label smoothing",
+      "target": "residual dropout",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4404,30 +4274,6 @@
     {
       "source": "byte-pair encoding",
       "target": "label smoothing",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "label smoothing",
-      "target": "word-piece vocabulary",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "label smoothing",
-      "target": "nvidia p100 gpus",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "label smoothing",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "label smoothing",
-      "target": "warmup steps",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4438,121 +4284,73 @@
       "weight": 1
     },
     {
-      "source": "dropout",
-      "target": "learning rate schedule",
+      "source": "label smoothing",
+      "target": "warmup_steps",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "dropout",
+      "source": "label smoothing",
+      "target": "parallelization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "bleu",
+      "target": "label smoothing",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "label smoothing",
+      "target": "regularization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "residual dropout",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "byte-pair encoding",
-      "target": "dropout",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "dropout",
-      "target": "word-piece vocabulary",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "dropout",
-      "target": "nvidia p100 gpus",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "dropout",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "dropout",
-      "target": "warmup steps",
+      "target": "residual dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "batching",
-      "target": "dropout",
+      "target": "residual dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "learning rate schedule",
-      "target": "wmt 2014",
+      "source": "residual dropout",
+      "target": "warmup_steps",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "byte-pair encoding",
-      "target": "learning rate schedule",
+      "source": "parallelization",
+      "target": "residual dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "learning rate schedule",
-      "target": "word-piece vocabulary",
+      "source": "bleu",
+      "target": "residual dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "learning rate schedule",
-      "target": "nvidia p100 gpus",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "learning rate schedule",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "learning rate schedule",
-      "target": "warmup steps",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "batching",
-      "target": "learning rate schedule",
+      "source": "regularization",
+      "target": "residual dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "byte-pair encoding",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "wmt 2014",
-      "target": "word-piece vocabulary",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "nvidia p100 gpus",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "wmt 2014",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "warmup steps",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
@@ -4564,26 +4362,14 @@
       "weight": 1
     },
     {
-      "source": "byte-pair encoding",
-      "target": "word-piece vocabulary",
+      "source": "warmup_steps",
+      "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "byte-pair encoding",
-      "target": "nvidia p100 gpus",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "byte-pair encoding",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "byte-pair encoding",
-      "target": "warmup steps",
+      "source": "regularization",
+      "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4594,74 +4380,92 @@
       "weight": 1
     },
     {
-      "source": "nvidia p100 gpus",
-      "target": "word-piece vocabulary",
+      "source": "byte-pair encoding",
+      "target": "warmup_steps",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "bleu score",
-      "target": "word-piece vocabulary",
+      "source": "byte-pair encoding",
+      "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "warmup steps",
-      "target": "word-piece vocabulary",
+      "source": "bleu",
+      "target": "byte-pair encoding",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "batching",
-      "target": "word-piece vocabulary",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "nvidia p100 gpus",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "nvidia p100 gpus",
-      "target": "warmup steps",
+      "source": "byte-pair encoding",
+      "target": "regularization",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "batching",
-      "target": "nvidia p100 gpus",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu score",
-      "target": "warmup steps",
+      "target": "warmup_steps",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "batching",
-      "target": "bleu score",
+      "target": "parallelization",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "batching",
-      "target": "warmup steps",
+      "target": "bleu",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "transformer",
-      "target": "기계번역",
+      "source": "batching",
+      "target": "regularization",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "transformer",
-      "target": "어텐션 헤드",
+      "source": "parallelization",
+      "target": "warmup_steps",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "bleu",
+      "target": "warmup_steps",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "regularization",
+      "target": "warmup_steps",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "parallelization",
+      "target": "regularization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "bleu",
+      "target": "regularization",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-german",
+      "target": "transformer",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-french",
+      "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4672,104 +4476,74 @@
       "weight": 1
     },
     {
-      "source": "transformer",
-      "target": "포지셔널 인코딩",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "transformer",
-      "target": "드롭아웃",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "transformer",
-      "target": "영어 구문 분석",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
       "source": "penn treebank",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "p100 gpu",
+      "source": "dropout",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "perplexity",
+      "source": "rnn sequence-to-sequence models",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "bleu",
-      "target": "기계번역",
+      "source": "english-to-german",
+      "target": "machine translation",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "wmt 2014",
-      "target": "기계번역",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "기계번역",
-      "target": "어텐션 헤드",
+      "source": "english-to-french",
+      "target": "machine translation",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "beam search",
-      "target": "기계번역",
+      "target": "machine translation",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "기계번역",
-      "target": "포지셔널 인코딩",
+      "source": "machine translation",
+      "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "기계번역",
-      "target": "드롭아웃",
+      "source": "machine translation",
+      "target": "penn treebank",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "기계번역",
-      "target": "영어 구문 분석",
+      "source": "dropout",
+      "target": "machine translation",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "penn treebank",
-      "target": "기계번역",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "p100 gpu",
-      "target": "기계번역",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "perplexity",
-      "target": "기계번역",
+      "source": "machine translation",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "bleu",
-      "target": "어텐션 헤드",
+      "target": "english-to-german",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "bleu",
+      "target": "english-to-french",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4781,19 +4555,7 @@
     },
     {
       "source": "bleu",
-      "target": "포지셔널 인코딩",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu",
-      "target": "드롭아웃",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "bleu",
-      "target": "영어 구문 분석",
+      "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4805,19 +4567,25 @@
     },
     {
       "source": "bleu",
-      "target": "p100 gpu",
+      "target": "dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "bleu",
-      "target": "perplexity",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "wmt 2014",
-      "target": "어텐션 헤드",
+      "source": "english-to-german",
+      "target": "wmt 2014",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-french",
+      "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4828,20 +4596,8 @@
       "weight": 1
     },
     {
-      "source": "wmt 2014",
-      "target": "포지셔널 인코딩",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "wmt 2014",
-      "target": "드롭아웃",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "wmt 2014",
-      "target": "영어 구문 분석",
+      "source": "positional encoding",
+      "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4852,74 +4608,104 @@
       "weight": 1
     },
     {
-      "source": "p100 gpu",
+      "source": "dropout",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "perplexity",
+      "source": "rnn sequence-to-sequence models",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "beam search",
-      "target": "어텐션 헤드",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "어텐션 헤드",
-      "target": "포지셔널 인코딩",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "드롭아웃",
-      "target": "어텐션 헤드",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "어텐션 헤드",
-      "target": "영어 구문 분석",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "penn treebank",
-      "target": "어텐션 헤드",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "p100 gpu",
-      "target": "어텐션 헤드",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "perplexity",
-      "target": "어텐션 헤드",
+      "source": "english-to-french",
+      "target": "english-to-german",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "beam search",
-      "target": "포지셔널 인코딩",
+      "target": "english-to-german",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-german",
+      "target": "positional encoding",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english constituency parsing",
+      "target": "english-to-german",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-german",
+      "target": "penn treebank",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "dropout",
+      "target": "english-to-german",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-german",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "beam search",
-      "target": "드롭아웃",
+      "target": "english-to-french",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-french",
+      "target": "positional encoding",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english constituency parsing",
+      "target": "english-to-french",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-french",
+      "target": "penn treebank",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "dropout",
+      "target": "english-to-french",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english-to-french",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "beam search",
-      "target": "영어 구문 분석",
+      "target": "positional encoding",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "beam search",
+      "target": "english constituency parsing",
       "type": "cooccurs",
       "weight": 1
     },
@@ -4931,132 +4717,96 @@
     },
     {
       "source": "beam search",
-      "target": "p100 gpu",
+      "target": "dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "beam search",
-      "target": "perplexity",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "드롭아웃",
-      "target": "포지셔널 인코딩",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "영어 구문 분석",
-      "target": "포지셔널 인코딩",
+      "source": "english constituency parsing",
+      "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "penn treebank",
-      "target": "포지셔널 인코딩",
+      "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "p100 gpu",
-      "target": "포지셔널 인코딩",
+      "source": "dropout",
+      "target": "positional encoding",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "perplexity",
-      "target": "포지셔널 인코딩",
+      "source": "positional encoding",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "드롭아웃",
-      "target": "영어 구문 분석",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "penn treebank",
-      "target": "드롭아웃",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "p100 gpu",
-      "target": "드롭아웃",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "perplexity",
-      "target": "드롭아웃",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "penn treebank",
-      "target": "영어 구문 분석",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "p100 gpu",
-      "target": "영어 구문 분석",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "perplexity",
-      "target": "영어 구문 분석",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "p100 gpu",
+      "source": "english constituency parsing",
       "target": "penn treebank",
       "type": "cooccurs",
       "weight": 1
     },
     {
+      "source": "dropout",
+      "target": "english constituency parsing",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "english constituency parsing",
+      "target": "rnn sequence-to-sequence models",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "dropout",
+      "target": "penn treebank",
+      "type": "cooccurs",
+      "weight": 2
+    },
+    {
       "source": "penn treebank",
-      "target": "perplexity",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "p100 gpu",
-      "target": "perplexity",
+      "source": "dropout",
+      "target": "rnn sequence-to-sequence models",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "multi-headed self-attention",
+      "source": "recurrent layers",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "english-to-german translation",
+      "source": "transformer",
+      "target": "translation tasks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "local attention mechanisms",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "english-to-french translation",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention-based models",
-      "target": "transformer",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "local restricted attention",
+      "source": "images, audio and video",
       "target": "transformer",
       "type": "cooccurs",
       "weight": 1
@@ -5068,49 +4818,43 @@
       "weight": 1
     },
     {
-      "source": "multi-headed self-attention",
+      "source": "multi-head attention",
       "target": "sequence transduction",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "encoder-decoder architectures",
-      "target": "multi-headed self-attention",
+      "target": "multi-head attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "multi-headed self-attention",
-      "target": "wmt 2014",
+      "source": "multi-head attention",
+      "target": "recurrent layers",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "english-to-german translation",
-      "target": "multi-headed self-attention",
+      "source": "multi-head attention",
+      "target": "translation tasks",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "english-to-french translation",
-      "target": "multi-headed self-attention",
+      "source": "local attention mechanisms",
+      "target": "multi-head attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention-based models",
-      "target": "multi-headed self-attention",
+      "source": "images, audio and video",
+      "target": "multi-head attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "local restricted attention",
-      "target": "multi-headed self-attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "multi-headed self-attention",
+      "source": "multi-head attention",
       "target": "tensor2tensor",
       "type": "cooccurs",
       "weight": 1
@@ -5122,31 +4866,31 @@
       "weight": 1
     },
     {
+      "source": "recurrent layers",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "sequence transduction",
+      "target": "translation tasks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
       "source": "sequence transduction",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "english-to-german translation",
+      "source": "local attention mechanisms",
       "target": "sequence transduction",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "english-to-french translation",
-      "target": "sequence transduction",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention-based models",
-      "target": "sequence transduction",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "local restricted attention",
+      "source": "images, audio and video",
       "target": "sequence transduction",
       "type": "cooccurs",
       "weight": 1
@@ -5159,31 +4903,31 @@
     },
     {
       "source": "encoder-decoder architectures",
+      "target": "recurrent layers",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "encoder-decoder architectures",
+      "target": "translation tasks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "encoder-decoder architectures",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "encoder-decoder architectures",
-      "target": "english-to-german translation",
+      "target": "local attention mechanisms",
       "type": "cooccurs",
       "weight": 1
     },
     {
       "source": "encoder-decoder architectures",
-      "target": "english-to-french translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "attention-based models",
-      "target": "encoder-decoder architectures",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "encoder-decoder architectures",
-      "target": "local restricted attention",
+      "target": "images, audio and video",
       "type": "cooccurs",
       "weight": 1
     },
@@ -5194,25 +4938,67 @@
       "weight": 1
     },
     {
-      "source": "english-to-german translation",
+      "source": "recurrent layers",
+      "target": "translation tasks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "recurrent layers",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "english-to-french translation",
+      "source": "local attention mechanisms",
+      "target": "recurrent layers",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "images, audio and video",
+      "target": "recurrent layers",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "recurrent layers",
+      "target": "tensor2tensor",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "translation tasks",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention-based models",
+      "source": "local attention mechanisms",
+      "target": "translation tasks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "images, audio and video",
+      "target": "translation tasks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "tensor2tensor",
+      "target": "translation tasks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "local attention mechanisms",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "local restricted attention",
+      "source": "images, audio and video",
       "target": "wmt 2014",
       "type": "cooccurs",
       "weight": 1
@@ -5224,296 +5010,368 @@
       "weight": 1
     },
     {
-      "source": "english-to-french translation",
-      "target": "english-to-german translation",
+      "source": "images, audio and video",
+      "target": "local attention mechanisms",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention-based models",
-      "target": "english-to-german translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-to-german translation",
-      "target": "local restricted attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-to-german translation",
+      "source": "local attention mechanisms",
       "target": "tensor2tensor",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention-based models",
-      "target": "english-to-french translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-to-french translation",
-      "target": "local restricted attention",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "english-to-french translation",
+      "source": "images, audio and video",
       "target": "tensor2tensor",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention-based models",
-      "target": "local restricted attention",
+      "source": "attention",
+      "target": "neural machine translation",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention-based models",
-      "target": "tensor2tensor",
+      "source": "attention",
+      "target": "layer normalization",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "local restricted attention",
-      "target": "tensor2tensor",
+      "source": "attention",
+      "target": "lstm",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "encoder self-attention",
+      "source": "adam",
+      "target": "attention",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "dropout",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "machine reading",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "penn treebank",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "deep residual learning",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "neural machine translation",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "layer normalization",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "lstm",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "adam",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "dropout",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "machine reading",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "penn treebank",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "deep residual learning",
+      "target": "sequence transduction",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "neural machine translation",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "neural machine translation",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "long-distance dependencies",
+      "source": "layer normalization",
+      "target": "neural machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "lstm",
+      "target": "neural machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "adam",
+      "target": "neural machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "dropout",
+      "target": "neural machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "machine reading",
+      "target": "neural machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "neural machine translation",
+      "target": "penn treebank",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "deep residual learning",
+      "target": "neural machine translation",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "layer normalization",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "lstm",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "adam",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "dropout",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "machine reading",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "penn treebank",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "deep residual learning",
+      "target": "recurrent neural networks",
+      "type": "cooccurs",
+      "weight": 1
+    },
+    {
+      "source": "lstm",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "anaphora resolution",
+      "source": "adam",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "self-attention",
-      "target": "sequence modeling",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer 5",
+      "source": "dropout",
       "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "self-attention",
-      "target": "syntactic structure",
+      "source": "machine reading",
+      "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "encoder self-attention",
-      "target": "transformer",
+      "source": "penn treebank",
+      "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention heads",
-      "target": "transformer",
+      "source": "deep residual learning",
+      "target": "self-attention",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "long-distance dependencies",
-      "target": "transformer",
+      "source": "layer normalization",
+      "target": "lstm",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "anaphora resolution",
-      "target": "transformer",
+      "source": "adam",
+      "target": "layer normalization",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "layer 5",
-      "target": "transformer",
+      "source": "dropout",
+      "target": "layer normalization",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "syntactic structure",
-      "target": "transformer",
+      "source": "layer normalization",
+      "target": "machine reading",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention heads",
-      "target": "encoder self-attention",
+      "source": "layer normalization",
+      "target": "penn treebank",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "encoder self-attention",
-      "target": "long-distance dependencies",
+      "source": "deep residual learning",
+      "target": "layer normalization",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "anaphora resolution",
-      "target": "encoder self-attention",
+      "source": "adam",
+      "target": "lstm",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "encoder self-attention",
-      "target": "machine translation",
+      "source": "dropout",
+      "target": "lstm",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "encoder self-attention",
-      "target": "sequence modeling",
+      "source": "lstm",
+      "target": "machine reading",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "encoder self-attention",
-      "target": "layer 5",
+      "source": "lstm",
+      "target": "penn treebank",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "encoder self-attention",
-      "target": "syntactic structure",
+      "source": "deep residual learning",
+      "target": "lstm",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention heads",
-      "target": "long-distance dependencies",
+      "source": "adam",
+      "target": "dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "anaphora resolution",
-      "target": "attention heads",
+      "source": "adam",
+      "target": "machine reading",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention heads",
-      "target": "machine translation",
+      "source": "adam",
+      "target": "penn treebank",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention heads",
-      "target": "sequence modeling",
+      "source": "adam",
+      "target": "deep residual learning",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention heads",
-      "target": "layer 5",
+      "source": "dropout",
+      "target": "machine reading",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "attention heads",
-      "target": "syntactic structure",
+      "source": "deep residual learning",
+      "target": "dropout",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "anaphora resolution",
-      "target": "long-distance dependencies",
+      "source": "machine reading",
+      "target": "penn treebank",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "long-distance dependencies",
-      "target": "machine translation",
+      "source": "deep residual learning",
+      "target": "machine reading",
       "type": "cooccurs",
       "weight": 1
     },
     {
-      "source": "long-distance dependencies",
-      "target": "sequence modeling",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer 5",
-      "target": "long-distance dependencies",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "long-distance dependencies",
-      "target": "syntactic structure",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "anaphora resolution",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "anaphora resolution",
-      "target": "sequence modeling",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "anaphora resolution",
-      "target": "layer 5",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "anaphora resolution",
-      "target": "syntactic structure",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer 5",
-      "target": "machine translation",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "machine translation",
-      "target": "syntactic structure",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer 5",
-      "target": "sequence modeling",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "sequence modeling",
-      "target": "syntactic structure",
-      "type": "cooccurs",
-      "weight": 1
-    },
-    {
-      "source": "layer 5",
-      "target": "syntactic structure",
+      "source": "deep residual learning",
+      "target": "penn treebank",
       "type": "cooccurs",
       "weight": 1
     }

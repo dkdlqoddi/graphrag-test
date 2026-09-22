@@ -5,13 +5,13 @@ source: "attention.pdf"
 pages: 15
 chapters: 10
 category: "computing"
-keywords: ["transformer","self-attention","machine translation","encoder-decoder","parallelization","long-range dependencies","multi-head attention","bleu"]
-createdAt: "2026-09-22T08:02:42.689Z"
+keywords: ["attention","transformer","self-attention","sequence transduction","machine translation","encoder-decoder","multi-head attention","positional encoding"]
+createdAt: "2026-09-22T08:37:05.901Z"
 ---
 
 # Attention Is All You Need
 
-이 문서는 순환 신경망이나 합성곱 없이 attention만으로 동작하는 Transformer를 제안하고, 기계번역과 구문 분석에서의 우수한 성능과 병렬 처리 이점을 설명한다. 또한 모델 구조, self-attention의 장점, 학습 방법, 실험 결과와 향후 확장 가능성까지 체계적으로 정리한다.
+이 문서는 순환 신경망이나 합성곱 대신 self-attention과 multi-head attention만으로 시퀀스 변환 문제를 푸는 Transformer를 제안하고, 기계번역에서의 성능 향상과 병렬화 이점을 설명한다. 또한 구조, 학습 방법, 실험 결과를 통해 Transformer의 일반화 가능성과 향후 확장 가능성을 보여준다.
 
 ## 챕터
 

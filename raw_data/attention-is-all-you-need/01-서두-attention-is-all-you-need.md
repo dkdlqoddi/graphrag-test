@@ -5,8 +5,8 @@ chapter: 1
 title: "서두 · Attention Is All You Need"
 pages: [1,1]
 category: "computing"
-summary: "이 논문은 시퀀스 변환 문제를 위해 순환 구조나 합성곱 없이 오직 attention만으로 동작하는 Transformer를 제안한다. 병렬 처리와 장거리 의존성 학습의 장점을 통해 기계번역 성능을 크게 향상시키는 것이 핵심이다."
-keywords: ["Attention","Transformer","self-attention","sequence transduction","machine translation","encoder-decoder","parallelization","recurrent networks","convolutional networks","long-range dependencies"]
+summary: "이 장은 기계번역을 포함한 시퀀스 변환 문제를 해결하기 위해 제안된 Transformer와 그 핵심 메커니즘인 attention을 소개한다. RNN이나 CNN 대신 self-attention만으로 병렬화와 성능 향상을 달성하는 방향을 제시한다."
+keywords: ["attention","Transformer","self-attention","sequence transduction","machine translation","encoder-decoder","recurrent neural networks","CNN","parallelization","Google Brain"]
 ---
 
 # 서두 · Attention Is All You Need

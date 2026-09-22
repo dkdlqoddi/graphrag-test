@@ -5,8 +5,8 @@ chapter: 6
 title: "4 Why Self-Attention"
 pages: [6,7]
 category: "computing"
-summary: "이 절에서는 self-attention을 recurrent layer와 convolutional layer와 비교하며, 계산 복잡도, 병렬화 가능성, 그리고 장거리 의존성까지의 경로 길이를 기준으로 장단점을 설명한다. 또한 self-attention이 해석 가능성을 높일 수 있음을 언급한다."
-keywords: ["self-attention","recurrent layer","convolutional layer","long-range dependencies","computational complexity","parallelization","path length","sequence transduction","dilated convolutions","separable convolutions","attention heads","byte-pair"]
+summary: "이 절은 self-attention이 recurrent layer와 convolutional layer에 비해 계산 복잡도, 병렬화 가능성, 장거리 의존성 학습 측면에서 왜 유리한지 비교한다. 또한 attention head가 문장의 구문·의미 구조를 반영할 수 있어 해석 가능성도 높아질 수 있음을 보인다."
+keywords: ["self-attention","recurrent layer","convolutional layer","long-range dependencies","computational complexity","parallelization","path length","sequence transduction","word-piece","byte-pair","separable convolutions","attention heads"]
 ---
 
 # 4 Why Self-Attention

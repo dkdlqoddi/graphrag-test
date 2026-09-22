@@ -5,8 +5,8 @@ chapter: 3
 title: "1 Introduction"
 pages: [2,2]
 category: "computing"
-summary: "기존의 순환 신경망과 LSTM, GRU는 시퀀스 모델링과 기계 번역에서 강력했지만, 계산이 순차적이라 병렬화에 한계가 있었다. 이 장에서는 이러한 제약을 대체하기 위해 순환 없이 주의 메커니즘만으로 전역 의존성을 학습하는 Transformer를 제안한다."
-keywords: ["Transformer","attention mechanism","sequence modeling","machine translation","recurrent neural networks","LSTM","GRU","encoder-decoder architectures","parallelization","global dependencies","GPU"]
+summary: "이 장에서는 순환 신경망 기반의 시퀀스 모델링 한계를 설명하고, 이를 대체할 Transformer를 제안한다. Transformer는 recurrence 없이 attention mechanism만으로 전역 의존성을 모델링하며, 더 높은 병렬화와 번역 성능을 달성한다."
+keywords: ["Transformer","attention mechanism","sequence modeling","machine translation","recurrent neural networks","encoder-decoder architectures","long short-term memory","parallelization","global dependencies","conditional computation"]
 ---
 
 # 1 Introduction

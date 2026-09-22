@@ -1,0 +1,330 @@
+/* agent-lab — 삼성 블루 #1428A0 */
+
+:root {
+  --blue: #1428A0;
+  --blue-dark: #0E1C70;
+  --ink: #1a1a1a;
+  --muted: #5b6472;
+  --line: #dfe3ea;
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --warn: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.6 "Malgun Gothic", "맑은 고딕", system-ui, sans-serif;
+}
+
+/* ── 상단 ─────────────────────────────────────────────── */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  height: 56px;
+  background: var(--blue);
+  color: #fff;
+}
+.brand { font-size: 18px; font-weight: 700; letter-spacing: .3px; }
+
+.tabs { display: flex; gap: 4px; flex: 1; }
+.tab {
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, .82);
+  font: inherit;
+  padding: 8px 18px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+}
+.tab:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+.tab.on { background: #fff; color: var(--blue); font-weight: 700; }
+
+.chips { display: flex; gap: 8px; }
+.chip {
+  background: rgba(255, 255, 255, .16);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+}
+
+/* ── 판 ───────────────────────────────────────────────── */
+.panel { display: none; padding: 20px 24px 48px; }
+.panel.on { display: block; }
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+@media (max-width: 1080px) { .cols { grid-template-columns: 1fr; } }
+.col { display: flex; flex-direction: column; gap: 20px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.card h2 { margin: 0 0 4px; font-size: 16px; }
+.card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hint { margin: 4px 0 14px; color: var(--muted); font-size: 13px; }
+
+/* ── 입력 ─────────────────────────────────────────────── */
+textarea, input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 11px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  resize: vertical;
+}
+textarea:focus, input[type="text"]:focus { outline: 2px solid var(--blue); border-color: var(--blue); }
+
+button { font: inherit; cursor: pointer; border-radius: 6px; }
+.primary { background: var(--blue); color: #fff; border: 0; padding: 9px 20px; }
+.primary:hover:not(:disabled) { background: var(--blue-dark); }
+.primary:disabled { background: #b7c0dc; cursor: default; }
+.apply { margin-top: 8px; background: #eef1f8; color: var(--blue); border: 1px solid #c9d2ea; padding: 6px 16px; }
+.apply:hover { background: #e2e8f6; }
+.ghost { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 5px 12px; font-size: 13px; }
+.ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ── 도구 카드 ────────────────────────────────────────── */
+.tool { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; }
+.tool-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.tool-name { font-family: Consolas, monospace; font-weight: 700; color: var(--blue); }
+.tool-meta { color: var(--muted); font-size: 12px; }
+.tool textarea { font-size: 14px; }
+.edited { color: #a26b00; font-size: 12px; }
+
+/* ── 대화 ─────────────────────────────────────────────── */
+.ask { display: flex; gap: 8px; }
+.ask input { flex: 1; }
+.answer {
+  margin-top: 14px;
+  background: #f7f9fd;
+  border-left: 3px solid var(--blue);
+  padding: 12px 14px;
+  border-radius: 0 6px 6px 0;
+  white-space: pre-wrap;
+}
+.calls { margin-top: 12px; }
+.call {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+.call b { font-family: Consolas, monospace; color: var(--blue); }
+.call .badge {
+  display: inline-block; margin-left: 6px; padding: 1px 8px;
+  background: #eef1f8; color: var(--blue); border-radius: 999px; font-size: 11px;
+}
+.call pre {
+  margin: 6px 0 0;
+  background: #fafbfd;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px 10px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font: 12px/1.5 Consolas, monospace;
+  color: #333;
+}
+.meta { margin-top: 10px; color: var(--muted); font-size: 12px; }
+
+/* ── 메모 ─────────────────────────────────────────────── */
+.notes { display: flex; flex-direction: column; gap: 8px; max-height: 420px; overflow-y: auto; }
+.note { border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; }
+.note b { display: block; font-size: 14px; }
+.note span { color: var(--muted); font-size: 13px; }
+.empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
+
+/* ── MCP ──────────────────────────────────────────────── */
+.server { display: flex; align-items: center; gap: 14px; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; }
+.server .body { flex: 1; }
+.server .body b { display: block; }
+.server .body span { color: var(--muted); font-size: 13px; }
+.merged { display: flex; flex-direction: column; gap: 6px; }
+.merged div { display: flex; gap: 10px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+.merged code { font-family: Consolas, monospace; color: var(--blue); }
+
+/* 직접 등록한 서버 */
+.server .body span.mine {
+  display: inline-block; margin-left: 6px; padding: 1px 8px;
+  background: #eef1f8; color: var(--blue); border-radius: 999px;
+  font-size: 11px; font-weight: 400;
+}
+.server .del {
+  background: transparent; border: 0; color: #b9bfc9; font-size: 15px;
+  line-height: 1; padding: 2px 6px;
+}
+.server .del:hover { color: var(--warn); }
+#mcpFound { margin-top: 12px; max-height: 280px; overflow-y: auto; }
+
+/* ── 에이전트 ────────────────────────────────────────── */
+.server .tools { display: block; font-size: 12px; color: #7a8494; }
+.down { color: var(--warn); font-size: 12px; font-weight: 400; margin-left: 6px; }
+
+.primary.block { display: block; width: 100%; margin-top: 10px; }
+
+/* 맡기기 · 중지 */
+.runrow { display: flex; gap: 8px; margin-top: 10px; }
+.runrow .primary { flex: 1; }
+.stop {
+  background: #fff; color: var(--warn); border: 1px solid #e6b8b4; padding: 9px 20px;
+}
+.stop:hover:not(:disabled) { background: #fdeceb; border-color: var(--warn); }
+.stop:disabled { color: #b9bfc9; border-color: var(--line); cursor: default; }
+
+/* 자료 파일 */
+.pick {
+  border: 1px solid #c9d2ea; background: #eef1f8; color: var(--blue);
+  border-radius: 6px; padding: 5px 14px; font-size: 13px; cursor: pointer;
+  white-space: nowrap;
+}
+.pick:hover { background: #e2e8f6; }
+.files { display: flex; flex-direction: column; gap: 6px; }
+.file {
+  display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px;
+}
+.file .nm { flex: 1; font-family: Consolas, monospace; font-size: 13px; color: var(--ink); }
+.file .sz { color: var(--muted); font-size: 12px; }
+.file .del {
+  background: transparent; border: 0; color: #b9bfc9; font-size: 15px;
+  line-height: 1; padding: 2px 6px;
+}
+.file .del:hover { color: var(--warn); }
+.drop { outline: 2px dashed var(--blue); outline-offset: 3px; }
+
+.log { display: flex; flex-direction: column; gap: 10px; }
+.round {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #eef1f8;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+}
+.ev { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.ev b { font-size: 13px; }
+.ev.to { border-left: 3px solid var(--blue); background: #f7f9fd; }
+.ev.from { border-left: 3px solid #7a8494; }
+.ev.final { border-left: 3px solid #1f7a3d; background: #f5faf6; }
+.ev pre {
+  margin: 6px 0 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font: 12px/1.55 Consolas, monospace;
+  color: #333;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+/* ── 에이전트 그래프 ─────────────────────────────────── */
+/* 세 마디를 삼각형으로 두고, 오가는 것을 변 위에 그린다.
+   색은 역할마다 하나씩 — 책임자 파랑, 조사 청록, 실험 주황. */
+.graph-card { margin-bottom: 20px; }
+.graph-card .status {
+  font-size: 12px; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px;
+}
+.graph-card .status.busy { color: var(--blue); border-color: #b9c4e8; background: #eef1f8; }
+.graph-card .status.done { color: #1f7a3d; border-color: #bfe0c9; background: #f2f9f4; }
+.graph-card .status.fail { color: var(--warn); border-color: #f3c6c2; background: #fdeceb; }
+
+#graph { display: block; width: 100%; max-width: 760px; margin: 4px auto 0; height: auto; }
+/* SVG 안에서는 hidden 속성을 브라우저 기본 스타일에 맡기지 않고 직접 정한다 */
+#graph [hidden] { display: none; }
+
+.wire-base { stroke: #d3d9e6; stroke-width: 3; fill: none; }
+.wire-none { stroke: #d3d9e6; stroke-width: 2; stroke-dasharray: 3 7; fill: none; }
+.wire-none-bg { fill: var(--card); }
+.wire-none-tx { fill: #9aa3b2; font-size: 12px; text-anchor: middle; dominant-baseline: middle; }
+
+/* 오가는 중인 변. 파선을 흘려 방향을 보인다 */
+.flow { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 9 13; }
+.flow.moving { animation: flow .8s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -22; } }
+.packet { stroke: #fff; stroke-width: 2; }
+
+.node .disc { fill: #fff; stroke: #ccd4e4; stroke-width: 3; }
+.node .halo { fill: #1428A0; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.node .tag  { font-size: 17px; font-weight: 700; fill: #9aa3b2; text-anchor: middle; dominant-baseline: middle; }
+.node .name { font-size: 14px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+.node .sub  { font-size: 11.5px; fill: var(--muted); text-anchor: middle; }
+
+/* 역할 색 — 떠 있으면 자기 색을 띤다 */
+.node.up[data-role="orchestrator"] .disc { stroke: #1428A0; }
+.node.up[data-role="orchestrator"] .tag  { fill: #1428A0; }
+.node.up[data-role="research"]     .disc { stroke: #0F7B6C; }
+.node.up[data-role="research"]     .tag  { fill: #0F7B6C; }
+.node.up[data-role="experiment"]   .disc { stroke: #B26A00; }
+.node.up[data-role="experiment"]   .tag  { fill: #B26A00; }
+
+.node[data-role="research"]   .halo { fill: #0F7B6C; }
+.node[data-role="experiment"] .halo { fill: #B26A00; }
+
+/* 꺼져 있는 마디 */
+.node.off .disc { stroke: #e3e7ef; stroke-dasharray: 5 5; }
+.node.off .tag, .node.off .name { fill: #b3bac6; }
+
+/* 지금 일하는 마디 — 테두리를 굵히고, 옅게 채우고, 잔물결을 낸다.
+   잔물결은 움직임이므로 멈춘 화면에서도 알아보도록 채우기를 함께 쓴다. */
+.node.active .disc { stroke-width: 5; }
+.node.active[data-role="orchestrator"] .disc { fill: #eef1f8; }
+.node.active[data-role="research"]     .disc { fill: #e8f4f1; }
+.node.active[data-role="experiment"]   .disc { fill: #fdf3e4; }
+.node.active .halo { animation: pulse 1.6s ease-out infinite; }
+@keyframes pulse {
+  0%   { transform: scale(1);    opacity: .38; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+
+/* 오간 글 */
+.wirebox {
+  margin: 6px auto 0; max-width: 760px;
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+}
+.wirebox-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px 12px; background: #f7f9fd; border-bottom: 1px solid var(--line);
+}
+.wirebox-head .dir { font-size: 13px; font-weight: 700; color: var(--blue); }
+.wirebox-head .kind { font-size: 11px; color: var(--muted); }
+.wirebox.back .wirebox-head { background: #f8f9fa; }
+.wirebox.back .wirebox-head .dir { color: #46505f; }
+.wirebox.fail .wirebox-head { background: #fdeceb; }
+.wirebox.fail .wirebox-head .dir { color: var(--warn); }
+.wirebox pre {
+  margin: 0; padding: 10px 12px; max-height: 190px; overflow-y: auto;
+  white-space: pre-wrap; word-break: break-word;
+  font: 12px/1.55 Consolas, monospace; color: #333;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow.moving, .node.active .halo { animation: none; }
+}
+
+/* ── 오류 ─────────────────────────────────────────────── */
+.errors {
+  margin: 16px 24px 0;
+  background: #fdeceb;
+  border: 1px solid #f3c6c2;
+  color: var(--warn);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+}

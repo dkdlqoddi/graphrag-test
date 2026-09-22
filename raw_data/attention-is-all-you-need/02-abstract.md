@@ -5,8 +5,8 @@ chapter: 2
 title: "Abstract"
 pages: [1,1]
 category: "computing"
-summary: "복잡한 순환·합성곱 신경망 대신 attention만으로 이루어진 Transformer를 제안하며, 기계 번역과 구문 분석에서 더 높은 품질과 더 나은 병렬성을 보인다고 설명한다. 특히 WMT 번역 작업에서 BLEU 점수를 크게 향상시키고, 다양한 작업으로의 일반화 가능성을 보인다."
-keywords: ["Transformer","attention mechanism","machine translation","self-attention","Multi-Head Attention","encoder-decoder","BLEU","WMT 2014","English-German translation","English-French translation","GPU","English constituency parsing"]
+summary: "Transformer는 순환이나 합성곱 없이 attention만으로 동작하는 새로운 시퀀스 변환 모델로, 기계번역에서 기존 최고 성능을 뛰어넘고 학습 효율도 크게 개선했다. 또한 영어 구문 분석에도 잘 일반화되어 self-attention 기반 구조의 범용성을 보여준다."
+keywords: ["Transformer","attention mechanism","self-attention","machine translation","encoder-decoder","Multi-Head Attention","scaled dot-product attention","WMT 2014","BLEU","English constituency parsing","parallelization"]
 ---
 
 # Abstract

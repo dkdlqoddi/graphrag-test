@@ -5,8 +5,8 @@ chapter: 4
 title: "2 Background"
 pages: [2,2]
 category: "computing"
-summary: "이 절은 순차적 계산을 줄이기 위한 기존 모델들(Extended Neural GPU, ByteNet, ConvS2S)과 self-attention의 배경을 설명한다. Transformer가 RNN이나 convolution 없이 self-attention만으로 입력·출력 표현을 계산하는 첫 transduction model임을 강조한다."
-keywords: ["Transformer","self-attention","Multi-Head Attention","convolutional neural networks","RNN","ByteNet","ConvS2S","Extended Neural GPU","end-to-end memory networks","sequence-aligned recurrence"]
+summary: "Transformer는 순차적 계산을 줄이기 위해 self-attention만으로 입력과 출력을 표현하는 최초의 transduction 모델로 소개된다. 기존의 convolutional 모델과 RNN 기반 모델과 비교해, 멀리 떨어진 위치 간 의존성을 더 효율적으로 학습할 수 있음을 설명한다."
+keywords: ["Transformer","self-attention","Multi-Head Attention","convolutional neural networks","recurrent neural networks","ByteNet","ConvS2S","Extended Neural GPU","end-to-end memory networks","sequence-aligned recurrence","reading comprehension","abstractive summarization"]
 ---
 
 # 2 Background

@@ -5,8 +5,8 @@ chapter: 8
 title: "6 Results"
 pages: [8,10]
 category: "computing"
-summary: "Transformer는 기계번역과 영어 구문 분석에서 기존 모델을 크게 능가하며, 적은 학습 비용으로도 높은 성능을 보였다. 또한 어텐션 헤드 수, 차원, 드롭아웃, 위치 인코딩 등 모델 변형이 성능에 미치는 영향을 분석했다."
-keywords: ["Transformer","기계번역","BLEU","WMT 2014","어텐션 헤드","beam search","포지셔널 인코딩","드롭아웃","영어 구문 분석","Penn Treebank","P100 GPU","perplexity"]
+summary: "Transformer 모델의 기계번역 성능과 구조 변형, 그리고 영어 구문 분석으로의 일반화 능력을 평가한 결과를 제시한다. WMT 2014 영어-독일어/프랑스어 번역에서 새로운 최고 성능을 보였고, WSJ 기반 constituency parsing에서도 강한 성능을 확인했다."
+keywords: ["Transformer","machine translation","BLEU","WMT 2014","English-to-German","English-to-French","beam search","positional encoding","English constituency parsing","Penn Treebank","dropout","RNN sequence-to-sequence models"]
 ---
 
 # 6 Results
